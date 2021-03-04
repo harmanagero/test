@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-4 (tags/2.2.0-4-7595; 2013-05-30T12:51:32+0200) JAXWS-RI/2.2.6-5 JAXWS/2.2 svn-revision#unknown. -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:svprtnr-xsd="http://www.atxg.com/schemas/t3/ts/svcpartnersvc" xmlns:svprtnrc-xsd="http://www.atxg.com/schemas/t3/ts/svcpartnercommon" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.atxg.com/schemas/t3/ts/svcpartnersvc">	
+	
+    <xsd:import namespace="http://www.atxg.com/schemas/t3/ts/svcpartnercommon" schemaLocation="https://gwoutstage.ageroappsnonprod.corppvt.cloud/SiriusXM/Stage/ServicePartnerSvc/ServicePartnerSvcPort?WSDL&amp;fingerprint=YRPQ5GU7KCLZFFTX5GA4D6PF4J42HH6L"/>
+	
+    	
+    <xsd:element name="read-detail-data-request-message" type="svprtnr-xsd:ReadDetailDataRequestMessageType"/>
+    <xsd:element name="read-detail-data-response-message" type="svprtnr-xsd:ReadDetailDataResponseMessageType"/>
+    	
+	<xsd:complexType name="ReadDetailDataRequestMessageType">
+		<xsd:sequence>
+			<xsd:element name="reference-id" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="contact-last-name" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="contact-phone-number" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+    <xsd:complexType name="ReadDetailDataResponseMessageType">
+        <xsd:complexContent>
+            <xsd:extension base="svprtnrc-xsd:ResponseMessageType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="account-status" type="svprtnrc-xsd:AccountStatusType"/>
+                    <xsd:element minOccurs="0" name="vehicle-info" type="svprtnrc-xsd:VehicleType"/>
+                    <xsd:element minOccurs="0" name="owner-info" type="svprtnrc-xsd:ContactType"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="contact-info" type="svprtnrc-xsd:ContactType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+        
+    <xsd:element name="read-diagnostic-data-request-message" type="svprtnr-xsd:ReadDiagnosticDataRequestMessageType"/>
+    <xsd:element name="read-diagnostic-data-response-message" type="svprtnr-xsd:ReadDiagnosticDataResponseMessageType"/>
+        
+    <xsd:complexType name="ReadDiagnosticDataRequestMessageType">
+        <xsd:sequence>
+            <xsd:element name="reference-id" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ReadDiagnosticDataResponseMessageType">
+        <xsd:complexContent>
+            <xsd:extension base="svprtnrc-xsd:ResponseMessageType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="diagnostic-data" type="svprtnrc-xsd:DiagnosticDataType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    	
+    <xsd:element name="remove-notify-request-message" type="svprtnr-xsd:RemoveNotifyRequestMessageType"/>
+    <xsd:element name="remove-notify-response-message" type="svprtnrc-xsd:ResponseMessageType"/>
+    	
+	<xsd:complexType name="RemoveNotifyRequestMessageType">
+		<xsd:sequence>
+			<xsd:element name="reference-id" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="requestor-application" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="requestor-agent-id" type="xsd:string"/>			
+		</xsd:sequence>
+	</xsd:complexType>		
+	
+	
+    <xsd:element name="request-service-request-message" type="svprtnr-xsd:RequestServiceRequestMessageType"/>
+    <xsd:element name="request-service-response-message" type="svprtnrc-xsd:ResponseMessageType"/>
+    	
+	<xsd:complexType name="RequestServiceRequestMessageType">
+		<xsd:sequence>
+			<xsd:element name="reference-id" type="xsd:string"/>
+            <xsd:element name="service-type" type="svprtnrc-xsd:ServiceType"/>
+            <xsd:element minOccurs="0" name="country" type="svprtnrc-xsd:CountryType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	
+    <xsd:element name="retransmit-request-message" type="svprtnr-xsd:RetransmitRequestMessageType"/>
+    <xsd:element name="retransmit-response-message" type="svprtnrc-xsd:ResponseMessageType"/>
+    	
+	<xsd:complexType name="RetransmitRequestMessageType">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="maximum-location-count" type="xsd:int"/>
+			<xsd:element name="reference-id" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	
+    <xsd:element name="agent-assigned-request-message" type="svprtnr-xsd:AgentAssignedRequestMessageType"/>
+    <xsd:element name="agent-assigned-response-message" type="svprtnrc-xsd:ResponseMessageType"/>
+    	
+	<xsd:complexType name="AgentAssignedRequestMessageType">
+		<xsd:sequence>
+			<xsd:element name="reference-id" type="xsd:string"/>
+			<xsd:element name="is-assigned" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+    
+    <xsd:element name="send-notification-request-message" type="svprtnr-xsd:SendNotificationRequestMessageType"/>
+    <xsd:element name="send-notification-response-message" type="svprtnrc-xsd:ResponseMessageType"/>
+        
+    <xsd:complexType name="SendNotificationRequestMessageType">
+        <xsd:sequence>
+            <xsd:element name="reference-id" type="xsd:string"/>
+            <xsd:element maxOccurs="unbounded" name="data-list" type="svprtnrc-xsd:NotificationDataType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    
+    <xsd:element name="send-poi-request-message" type="svprtnr-xsd:SendPoiRequestMessageType"/>
+    <xsd:element name="send-poi-response-message" type="svprtnrc-xsd:ResponseMessageType"/>
+        
+    <xsd:complexType name="SendPoiRequestMessageType">
+        <xsd:sequence>
+            <xsd:element name="reference-id" type="xsd:string"/>
+            <xsd:element maxOccurs="unbounded" name="poi-list" type="svprtnrc-xsd:PoiType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    
+    <xsd:element name="terminate-request-message" type="svprtnr-xsd:TerminateRequestMessageType"/>
+    <xsd:element name="terminate-response-message" type="svprtnrc-xsd:ResponseMessageType"/>
+        
+    <xsd:complexType name="TerminateRequestMessageType">
+        <xsd:sequence>
+            <xsd:element name="reference-id" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="reason-code" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+		
+</xsd:schema>

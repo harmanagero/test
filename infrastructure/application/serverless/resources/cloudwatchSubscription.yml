@@ -1,0 +1,8 @@
+Resources:
+  CloudwatchSubFilter:
+    Type: AWS::Logs::SubscriptionFilter
+    DependsOn: ApiDashrequestLogGroup
+    Properties:
+      LogGroupName: /aws/lambda/sls-connected-vehicle-api-${self:custom.stage}
+      FilterPattern: ""
+      DestinationArn: ${self:custom.destinationArn}

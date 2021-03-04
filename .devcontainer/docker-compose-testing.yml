@@ -1,0 +1,21 @@
+version: "3"
+services:
+  automationtestsrunner:
+    build:
+      context: ..
+      dockerfile: .devcontainer/automationtests.Dockerfile
+    ports:
+      - "3000:3000"
+    # command:
+    #   run NGPProfileSearchAPIDataDriven.postman_collection.json
+    #   -e environments/coreteam.postman_environment.json
+    #   -d NGPAPI.csv
+    #   -r cli,junitfull
+    #   --reporter-junitfull-export Results//apiTestResults.xml
+    #  #--reporter-html-export Results//testresults.html --reporter-html-template reports/templates/customTemplate.hbs
+
+    volumes:
+      - ../automationtests:/etc/newman
+      #This docker image is designed to pick files from the /etc/newman directory within the image.
+      #Mount host collections folder ~/collections, onto /etc/newman on the docker image, so that newman
+      # has access to collections

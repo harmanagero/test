@@ -1,0 +1,3702 @@
+{
+	"info": {
+		"_postman_id": "92398408-6cdb-4d94-b23c-b0302de991d5",
+		"name": "CVGatewayAPI",
+		"description": "Regression testing for CVGatewayAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetVehicleData",
+			"item": [
+				{
+					"name": "VWCarnet2.0",
+					"item": [
+						{
+							"name": "GetDataByMsisdnRequestSuccesshttpStatus200VW",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "79d9e582-5868-406a-ba34-017ad7e941f3",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.header.countrycode).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.header.language).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.header.programcode).to.eql(\"vwcarnet\");});\r",
+											"\t\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.header.version).to.eql(\"2.0\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.header.referenceid).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.header.eventid).to.eql(null);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.header.msisdn).to.eql(\"5243583607\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.header.calltype).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.header.eventtype).to.eql(null);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.header.calldate).to.eql(\"2020-09-25\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.header.calltime).to.eql(\"19:05\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.header.timestamp).to.eql(\"2020-09-25T19:05:00\");});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.header.odometer).to.eql(16114);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.header.odometerscale).to.eql(\"Kilometers\");});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.location.latitude).to.eql(37.532918);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.location.longitude).to.eql(-122.272576 );});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.location.headingdirection).to.eql(\"NORTH EAST\");});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.vehicle.vin).to.eql(\"1VWSA7A3XLC011823\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.vehicle.brand.brandname).to.eql(\"VW\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.vehicle.brand.modelname).to.eql(\"Passat\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.vehicle.brand.modelyear).to.eql(\"2020\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.vehicle.brand.modelcode).to.eql(\"A342P6\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.msisdn\", function () {pm.expect(jsonData.data.vehicle.brand.modeldesc).to.eql(\"Passat_2020\");});\r",
+											"\t\r",
+											"\t\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.status value\", function () {pm.expect(jsonData.data.status).to.eql(\"200\");});\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200VW  data.responsemessage value\", function () {pm.expect(jsonData.data.responsemessage).to.eql(\"Successfully retrieved\");});\r",
+											"    }"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/{{msisdn}}/programcode/vwcarnet/ctsversion/2.0",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"{{msisdn}}",
+										"programcode",
+										"vwcarnet",
+										"ctsversion",
+										"2.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestSuccesshttpStatus403_WrongKeyVW",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4e53b86e-9234-4448-a1e7-5367ffc7dc3f",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403_WrongKeyVW  Status code is 403\", function () {\r",
+											"        pm.response.to.have.status(403);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403VW  data.msisdn\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\t\t\t\r",
+											"    }"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "RctjkExrMD73k7S1dYE4C7XxbQ6mR28Y9l3yydet",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/{{msisdn}}/programcode/vwcarnet/ctsversion/2.0",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"{{msisdn}}",
+										"programcode",
+										"vwcarnet",
+										"ctsversion",
+										"2.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestSuccesshttpStatus403_NoKeyVW",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dc0377bf-ea89-4715-a233-065fd00b7bff",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403_NoKeyVW  Status code is 403\", function () {\r",
+											"        pm.response.to.have.status(403);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403_WrongKeyVW  data.msisdn\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\t\t\t\r",
+											"    }"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/{{msisdn}}/programcode/vwcarnet/ctsversion/2.0",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"{{msisdn}}",
+										"programcode",
+										"vwcarnet",
+										"ctsversion",
+										"2.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestBadRequestHttpstatus400VW",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "972b1189-8df9-4ea0-82bf-c4a4c551d430",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByMsisdnRequestBadRequestHttpstatus400VW Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											" pm.test(\"GetDataByMsisdnRequestBadRequestHttpstatus400VW errors.status Value\", function () {pm.expect(jsonData .errors [0].status ).to.eql(\"400\");}); \r",
+											"   pm.test(\"GetDataByMsisdnRequestBadRequestHttpstatus400VW errors.status Value\", function () {pm.expect(jsonData .errors [0].code ).to.eql(\"BadRequest\");}); \r",
+											"   \r",
+											"pm.test(\"GetDataByMsisdnRequestBadRequestHttpstatus400VW errors.status Value\", function () {pm.expect(jsonData .errors [0].title ).to.eql(\"Bad Request\");}); \r",
+											"pm.test(\"GetDataByMsisdnRequestBadRequestHttpstatus400VW errors.status Value\", function () {pm.expect(jsonData .errors [0].detail ).to.eql(\"MSISDN_LENGTH_WRONG, MSISDN should atleast be 10 digits\");}); \r",
+											"\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/{{msisdnBad}}/programcode/vwcarnet/ctsversion/2.0",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"{{msisdnBad}}",
+										"programcode",
+										"vwcarnet",
+										"ctsversion",
+										"2.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestNotFoundHttpstatus404VW",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e2abf91b-2b5c-4a93-bfc0-7dd5338e4d78",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByMsisdnRequestNotFoundHttpstatus404VW Status code is 404\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											" pm.test(\"GetDataByMsisdnRequestNotFoundHttpstatus404VW errors.status Value\", function () {pm.expect(jsonData .errors [0].status ).to.eql(\"404\");}); \r",
+											"   pm.test(\"GetDataByMsisdnRequestNotFoundHttpstatus404VW errors.status Value\", function () {pm.expect(jsonData .errors [0].code ).to.eql(\"NotFound\");}); \r",
+											"   \r",
+											"pm.test(\"GetDataByMsisdnRequestNotFoundHttpstatus404VW errors.status Value\", function () {pm.expect(jsonData .errors [0].title ).to.eql(\"Not Found\");}); \r",
+											"pm.test(\"GetDataByMsisdnRequestNotFoundHttpstatus404VW errors.status Value\", function () {pm.expect(jsonData .errors [0].detail ).to.eql(\"MSISDN_NOT_FOUND, Unknown Error Situation\");}); \r",
+											"\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/{{msisdnNotfound}}/programcode/vwcarnet/ctsversion/2.0",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"{{msisdnNotfound}}",
+										"programcode",
+										"vwcarnet",
+										"ctsversion",
+										"2.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestInternalServererrorhttpstatus500VW",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6e35c226-5a22-43a4-84cb-d3d510797629",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByMsisdnRequestInternalServererrorhttpstatus500VW Status code is 500\", function () {\r",
+											"        pm.response.to.have.status(500);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											" pm.test(\"GetDataByMsisdnRequestInternalServererrorhttpstatus500VW errors.status Value\", function () {pm.expect(jsonData .errors [0].status ).to.eql(\"500\");}); \r",
+											"   pm.test(\"GetDataByMsisdnRequestInternalServererrorhttpstatus500VW errors.status Value\", function () {pm.expect(jsonData .errors [0].code ).to.eql(\"InternalServerError\");}); \r",
+											"   \r",
+											"pm.test(\"GetDataByMsisdnRequestInternalServererrorhttpstatus500VW errors.status Value\", function () {pm.expect(jsonData .errors [0].title ).to.eql(\"Internal Server Error\");}); \r",
+											"pm.test(\"GetDataByMsisdnRequestInternalServererrorhttpstatus500VW errors.status Value\", function () {pm.expect(jsonData .errors [0].detail ).to.eql(\"Server Error\");}); \r",
+											"\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/{{}}/programcode/vwcarnet/ctsversion/2.0",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"{{}}",
+										"programcode",
+										"vwcarnet",
+										"ctsversion",
+										"2.0"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Nissan",
+					"item": [
+						{
+							"name": "PostDataByReferenceidNissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a9998a4d-3e07-40a9-86e8-63672c29c586",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"\r",
+											"    pm.test(\"PostDataByReferenceidNissan Status code is 201\", function () {\r",
+											"        pm.response.to.have.status(201);});\r",
+											"     var jsonData = pm.response.json();\r",
+											"    pm.test(\"PostDataByReferenceidNissan  VarName Value\", function () {pm.expect(jsonData [0].VarName ).to.eql(\"User-to-User\");}); \r",
+											"    pm.test(\"PostDataByReferenceidNissan  VarName Value\", function () {pm.expect(jsonData [0].Value ).to.eql(\"00524f4144534944457e3130383031353438397e34322e3430367e2d37312e303734327e314e34414c334150304b433035353432317e656e\");}); \r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"programcode\":\"nissan\",\r\n\"language\": \"en\",\r\n\"referenceid\": \"108015489\",\r\n \"geolocation\": \"42.406~-71.0742~400;enc-param=token\",\r\n \"vin\": \"1N4AL3AP0KC055421\"\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByIdRequestSuccesshttpStatus200Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dc8756d9-5a33-4b2d-bb3a-95d37982e736",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"var today = new Date().toJSON().slice(0,10).replace(/-/g,'-');\r",
+											"console.log(today);\r",
+											"var d = new Date();\r",
+											"var hour = d.getUTCHours();\r",
+											"if (hour >= 0 && hour < 10) \r",
+											"{hour = \"0\" + hour;\r",
+											"}\r",
+											"var min = d.getUTCMinutes();\r",
+											"if (min >= 0 && min < 10) \r",
+											"{min = \"0\" + min;\r",
+											"}\r",
+											"var time = hour + \":\" + min; \r",
+											"console.log(time);\r",
+											"console.log(time + Date);\r",
+											"\r",
+											"var timestamp = today + \"T\" + time; \r",
+											"console.log(timestamp);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.header.countrycode).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.header.language).to.eql(\"en\");});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.header.programcode).to.eql(\"nissan\");});\r",
+											"\t\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.header.version).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.header.referenceid).to.eql(\"108015489\");});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.header.eventid).to.eql(null);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.header.msisdn).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.header.calltype).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.header.eventtype).to.eql(null);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.header.calldate).to.eql(today);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.header.calltime).to.eql(time);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.header.timestamp).to.contain(timestamp);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.header.odometer).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.header.odometerscale).to.eql(null);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.location.latitude).to.eql(0.0);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.location.longitude).to.eql(0.0);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.location.headingdirection).to.eql(null);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.vehicle.vin).to.eql(\"1N4AL3AP0KC055421\");});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.msisdn\", function () {pm.expect(jsonData.data.vehicle.brand).to.eql(null);});\r",
+											"    pm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.status value\", function () {pm.expect(jsonData.data.status).to.eql(\"200\");});\r",
+											"    pm.test(\"GetDataByIdRequestSuccesshttpStatus200Nissan data.responsemessage value\", function () {pm.expect(jsonData.data.responsemessage).to.eql(\"Successfully retrieved\");});\r",
+											"    }"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/108015489/programcode/nissan",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"108015489",
+										"programcode",
+										"nissan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestSuccesshttpStatus403_WrongKeyNissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "106a151b-5886-4667-bcd7-19670e53c521",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403_WrongKeyNissan  Status code is 403\", function () {\r",
+											"        pm.response.to.have.status(403);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403VW  data.msisdn\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\t\t\t\r",
+											"    }"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "RctjkExrMD73k7S1dYE4C7XxbQ6mR28Y9l3yydet"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/108015489/programcode/nissan",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"108015489",
+										"programcode",
+										"nissan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestSuccesshttpStatus403_NoKeyNissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2da24a77-4336-4a2a-966d-653cbf8f37ce",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403_NoKeyNissan  Status code is 403\", function () {\r",
+											"        pm.response.to.have.status(403);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403VW  data.msisdn\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\t\t\t\r",
+											"    }"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/108015489/programcode/nissan",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"108015489",
+										"programcode",
+										"nissan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByIdRequestBadRequestHttpstatus400Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bd7558cf-5cdf-4de3-972e-9d110553fbe1",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByIdRequestBadRequestHttpstatus200Nissan    Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											" pm.test(\"GetDataByIdRequestBadRequestHttpstatus200Nissan    errors.status Value\", function () {pm.expect(jsonData .errors [0].status ).to.eql(\"400\");}); \r",
+											"   pm.test(\"GetDataByIdRequestBadRequestHttpstatus200Nissan    errors.code Value\", function () {pm.expect(jsonData .errors [0].code ).to.eql(\"BadRequest\");}); \r",
+											"   \r",
+											"pm.test(\"GetDataByIdRequestBadRequestHttpstatus200Nissan    errors.title Value\", function () {pm.expect(jsonData .errors [0].title ).to.eql(\"Bad Request\");}); \r",
+											" pm.test(\"GetDataByIdRequestBadRequestHttpstatus200Nissan    error.detail.message\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"value is not a valid enumeration member; permitted: 'nissan', 'infiniti', 'fca', 'vwcarnet'\");});\r",
+											"\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/108015489/programcode/Infiniti",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"108015489",
+										"programcode",
+										"Infiniti"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByIdRequestNotFoundHttpstatus404Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "671f7fac-ee1b-4da9-aeea-985cec40d01f",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Nissan  Status code is 404\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											" pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Nissan  errors.status Value\", function () {pm.expect(jsonData .errors [0].status ).to.eql(\"404\");}); \r",
+											"   pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Nissan  errors.code Value\", function () {pm.expect(jsonData .errors [0].code ).to.eql(\"NotFound\");}); \r",
+											"   \r",
+											"pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Nissan  errors.title Value\", function () {pm.expect(jsonData .errors [0].title ).to.eql(\"Not Found\");}); \r",
+											"pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Nissan  errors.detail Value\", function () {pm.expect(jsonData .errors [0].detail ).to.eql(\"No data found\");}); \r",
+											"\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/108015480/programcode/nissan",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"108015480",
+										"programcode",
+										"nissan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestInternalServererrorhttpstatus500Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "26826ba2-a7f7-4833-aebe-1b110fe1a3cd",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/{{}}/programcode/nissan",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"{{}}",
+										"programcode",
+										"nissan"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Infiniti",
+					"item": [
+						{
+							"name": "PostDataByReferenceidInfiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "228d94d0-0f2e-440e-89ba-d9dd718e3bb7",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"\r",
+											"    pm.test(\"PostDataByReferenceidInfiniti Status code is 201\", function () {\r",
+											"        pm.response.to.have.status(201);\r",
+											"    });\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.test(\"PostDataByReferenceidInfiniti  VarName Value\", function () { pm.expect(jsonData[0].VarName).to.eql(\"User-to-User\"); });\r",
+											"    pm.test(\"PostDataByReferenceidInfiniti  VarName Value\", function () { pm.expect(jsonData[0].Value).to.contain(\"00524f4144534944457e3233303133323032327e34322e3430367e2d37312e303734327e314e34414c334150304b433035353432317e656e\"); });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"programcode\":\"infiniti\",\r\n\"language\": \"en\",\r\n\"referenceid\": \"230132022\",\r\n \"geolocation\": \"42.406~-71.0742~400;enc-param=token\",\r\n \"vin\": \"1N4AL3AP0KC055421\"\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByIdRequestSuccesshttpStatus200Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e6031300-80cf-4645-adb9-3c62367ea178",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"var today = new Date().toJSON().slice(0,10).replace(/-/g,'-');\r",
+											"console.log(today);\r",
+											"var d = new Date();\r",
+											"var hour = d.getUTCHours();\r",
+											"if (hour >= 0 && hour < 10) \r",
+											"{hour = \"0\" + hour;\r",
+											"}\r",
+											"var min = d.getUTCMinutes();\r",
+											"if (min >= 0 && min < 10) \r",
+											"{min = \"0\" + min;\r",
+											"}\r",
+											"var time = hour + \":\" + min; \r",
+											"console.log(time);\r",
+											"console.log(time + Date);\r",
+											"\r",
+											"var timestamp = today + \"T\" + time; \r",
+											"console.log(timestamp);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.header.countrycode).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.header.language).to.eql(\"en\");});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.header.programcode).to.eql(\"infiniti\");});\r",
+											"\t\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.header.version).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.header.referenceid).to.eql(\"230132022\");});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.header.eventid).to.eql(null);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.header.msisdn).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.header.calltype).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.header.eventtype).to.eql(null);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.header.calldate).to.eql(today);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.header.calltime).to.eql(time);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.header.timestamp).to.contain(timestamp);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.header.odometer).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.header.odometerscale).to.eql(null);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.location.latitude).to.eql(0.0);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.location.longitude).to.eql(0.0);});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.location.headingdirection).to.eql(null);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.vehicle.vin).to.eql(\"1N4AL3AP0KC055421\");});\r",
+											"\tpm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.msisdn\", function () {pm.expect(jsonData.data.vehicle.brand).to.eql(null);});\r",
+											"\t\t\r",
+											"\t\r",
+											"    pm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.status value\", function () {pm.expect(jsonData.data.status).to.eql(\"200\");});\r",
+											"    pm.test(\"GetDataByIdRequestSuccesshttpStatus200Infiniti data.responsemessage value\", function () {pm.expect(jsonData.data.responsemessage).to.eql(\"Successfully retrieved\");});\r",
+											"    }"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/230132022/programcode/infiniti",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"230132022",
+										"programcode",
+										"infiniti"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestSuccesshttpStatus403_NoKeyInfiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bb9ff345-8db6-484e-8469-b3df016e625b",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403_NoKeyInfiniti  Status code is 403\", function () {\r",
+											"        pm.response.to.have.status(403);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403VW  data.msisdn\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\t\t\t\r",
+											"    }"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/230132022/programcode/infiniti",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"230132022",
+										"programcode",
+										"infiniti"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestSuccesshttpStatus403_WrongKeyInfiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "570980d4-9ea6-4125-8439-b6ca50b8c53d",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403_WrongKeyInfiniti  Status code is 403\", function () {\r",
+											"        pm.response.to.have.status(403);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403VW  data.msisdn\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\t\t\t\r",
+											"    }"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "RctjkExrMD73k7S1dYE4C7XxbQ6mR28Y9l3yydet",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/230132022/programcode/infiniti",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"230132022",
+										"programcode",
+										"infiniti"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByIdRequestBadRequestHttpstatus400Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a18e9f35-9285-4e52-9415-02fed7dbd4cf",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByIdRequestBadRequestHttpstatus400Infiniti   Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											" pm.test(\"GetDataByIdRequestBadRequestHttpstatus400Infiniti   errors.status Value\", function () {pm.expect(jsonData .errors [0].status ).to.eql(\"400\");}); \r",
+											"   pm.test(\"GetDataByIdRequestBadRequestHttpstatus400Infiniti   errors.code Value\", function () {pm.expect(jsonData .errors [0].code ).to.eql(\"BadRequest\");}); \r",
+											"   \r",
+											"pm.test(\"GetDataByIdRequestBadRequestHttpstatus400Infiniti   errors.title Value\", function () {pm.expect(jsonData .errors [0].title ).to.eql(\"Bad Request\");}); \r",
+											" pm.test(\"GetDataByIdRequestBadRequestHttpstatus400Infiniti   error.detail.message\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"value is not a valid enumeration member; permitted: 'nissan', 'infiniti', 'fca', 'vwcarnet'\");});\r",
+											"\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/230132022/programcode/Infiniti",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"230132022",
+										"programcode",
+										"Infiniti"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByIdRequestNotFoundHttpstatus404Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "183b5842-8ca7-49f0-a2d2-697311f75888",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Infiniti Status code is 404\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											" pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Infiniti errors.status Value\", function () {pm.expect(jsonData .errors [0].status ).to.eql(\"404\");}); \r",
+											"   pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Infiniti errors.code Value\", function () {pm.expect(jsonData .errors [0].code ).to.eql(\"NotFound\");}); \r",
+											"   \r",
+											"pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Infiniti errors.title Value\", function () {pm.expect(jsonData .errors [0].title ).to.eql(\"Not Found\");}); \r",
+											"pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Infiniti errors.detail Value\", function () {pm.expect(jsonData .errors [0].detail ).to.eql(\"No data found\");}); \r",
+											"\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/{{}}/programcode/infiniti",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"{{}}",
+										"programcode",
+										"infiniti"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestInternalServererrorhttpstatus500Infiniti",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/{{referenceId}}/infiniti",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"{{referenceId}}",
+										"infiniti"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "FCA",
+					"item": [
+						{
+							"name": "GetDataByMsisdnRequestSuccesshttpStatus200fca",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c3887170-3eb0-436f-98f5-e6a98eb6be12",
+										"exec": [
+											"\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.header.\", function () {pm.expect(jsonData.data.header.countrycode).to.eql(\"US\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.header.language).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.header.programcode).to.eql(\"fca\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.header.version).to.eql(\"1.0\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.header.referenceid).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.header.eventid).to.eql(null);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.header.msisdn).to.eql(\"17608416476\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.header.calltype).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.header.eventtype).to.eql(null);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.header.calldate).to.eql(\"2020-12-01\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.header.calltime).to.eql(\"19:05\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.header.timestamp).to.eql(\"2020-12-01T19:05:18.918000+00:00\");});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.header.odometer).to.eql(0);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.header.odometerscale).to.eql(null);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.location.latitude).to.eql(42.67100524902344);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.location.longitude).to.eql(-83.0999755859375);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.location.headingdirection).to.eql(null);});\r",
+											"\t\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.vehicle.vin).to.eql(\"ZN661XUAXMX348998\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.vehicle.brand.brandname).to.eql(\"MASERATI\");});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.vehicle.brand.modelname).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.vehicle.brand.modelyear).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.vehicle.brand.modelcode).to.eql(null);});\r",
+											"\tpm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.msisdn\", function () {pm.expect(jsonData.data.vehicle.brand.modeldesc).to.eql(null);});\r",
+											"\t\r",
+											"\t\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.status value\", function () {pm.expect(jsonData.data.status).to.eql(\"200\");});\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus200fca data.responsemessage value\", function () {pm.expect(jsonData.data.responsemessage).to.eql(\"Successfully retrieved\");});\r",
+											"    "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "dS9m27BVI88a4OyU1e29sxPQv6MIVeH4nYv2bPp4",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-KEY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/17608416476/programcode/fca/ctsversion/1.0",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"17608416476",
+										"programcode",
+										"fca",
+										"ctsversion",
+										"1.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestSuccesshttpStatus403fcaWrongKey",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7fc89a06-96e1-45c2-ae8c-ed6cc9b40e8c",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403fcaWrongKey Status code is 403\", function () {\r",
+											"        pm.response.to.have.status(403);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403fcaWrongKey  data.msisdn\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\t\t\t\r",
+											"    "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "RctjkExrMD73k7S1dYE4C7XxbQ6mR28Y9l3yydeT",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-KEY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/17608416476/programcode/fca/ctsversion/1.0",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"17608416476",
+										"programcode",
+										"fca",
+										"ctsversion",
+										"1.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestSuccesshttpStatus403fcaNoKey",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f16215f2-46ee-47b2-b9eb-c2604f19fb28",
+										"exec": [
+											"\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403fcaNoKey  Status code is 403\", function () {\r",
+											"        pm.response.to.have.status(403);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"GetDataByMsisdnRequestSuccesshttpStatus403fcaNoKey  data.msisdn\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\t\t\t\r",
+											"    "
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-KEY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/17608416476/programcode/fca/ctsversion/1.0",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"17608416476",
+										"programcode",
+										"fca",
+										"ctsversion",
+										"1.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestBadRequestHttpstatus400fca",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "be5beb53-2d02-4a1f-868c-14fecaac109c",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"\r",
+											"    pm.test(\"GetDataByIdRequestBadRequestHttpstatus400Infiniti   Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											" pm.test(\"GetDataByIdRequestBadRequestHttpstatus400Infiniti   errors.status Value\", function () {pm.expect(jsonData .errors [0].status ).to.eql(\"400\");}); \r",
+											"   pm.test(\"GetDataByIdRequestBadRequestHttpstatus400Infiniti   errors.code Value\", function () {pm.expect(jsonData .errors [0].code ).to.eql(\"BadRequest\");}); \r",
+											"   \r",
+											"pm.test(\"GetDataByIdRequestBadRequestHttpstatus400Infiniti   errors.title Value\", function () {pm.expect(jsonData .errors [0].title ).to.eql(\"Bad Request\");}); \r",
+											" pm.test(\"GetDataByIdRequestBadRequestHttpstatus400Infiniti   error.detail.message\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"value is not a valid enumeration member; permitted: 'nissan', 'infiniti', 'fca', 'vwcarnet'\");});\r",
+											"\r",
+											"//}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{X-API-KEY}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-KEY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/17608416476/programcode/vw/ctsversion/1.0",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"17608416476",
+										"programcode",
+										"vw",
+										"ctsversion",
+										"1.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestNotFoundHttpstatus404fca",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7549c13b-cfa9-4abc-97fc-21f88484426f",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"\r",
+											"    pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Infiniti Status code is 404\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											" pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Infiniti errors.status Value\", function () {pm.expect(jsonData .errors [0].status ).to.eql(\"404\");}); \r",
+											"   pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Infiniti errors.code Value\", function () {pm.expect(jsonData .errors [0].code ).to.eql(\"NotFound\");}); \r",
+											"   \r",
+											"pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Infiniti errors.title Value\", function () {pm.expect(jsonData .errors [0].title ).to.eql(\"Not Found\");}); \r",
+											"pm.test(\"GetDataByIdRequestNotFoundHttpstatus404Infiniti errors.detail Value\", function () {pm.expect(jsonData .errors [0].detail ).to.eql(\"Record with specified msisdn does not exist\");}); \r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "dS9m27BVI88a4OyU1e29sxPQv6MIVeH4nYv2bPp4",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-KEY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/2145987452/programcode/fca/ctsversion/1.0",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"2145987452",
+										"programcode",
+										"fca",
+										"ctsversion",
+										"1.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDataByMsisdnRequestInternalServererrorhttpstatus500fca",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{X-API-KEY}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-KEY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/data/17608416476/programcode/fca/ctsversion/1.0",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"data",
+										"17608416476",
+										"programcode",
+										"fca",
+										"ctsversion",
+										"1.0"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "AgentAssignment/Terminate",
+			"item": [
+				{
+					"name": "infiniti",
+					"item": [
+						{
+							"name": "AgentAssignmentHttpCode201Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7c61137d-7f53-4196-8032-2723ab069fe6",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"AgentAssignmentHttpCode201Infiniti Status code is 201\", function () {\r",
+											"        pm.response.to.have.status(201);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"AgentAssignmentHttpCode201Infiniti data.reference_id\", function () {pm.expect(jsonData.data.reference_id).to.eql(\"1902317561\");});\r",
+											"    pm.test(\"AgentAssignmentHttpCode201Infiniti data.status value\", function () {pm.expect(jsonData.data.status).to.eql(\"201\");});\r",
+											"    pm.test(\"AgentAssignmentHttpCode201Infiniti data.agent_assigned value\", function () {pm.expect(jsonData.data.agent_assigned).to.eql(true);});\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "87053dd2-aed5-429f-a565-fdc1a4de0b14",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-API-KEY",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{X-API-KEY}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"isassigned\": true,\r\n\t\"programcode\": \"infiniti\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/agentassignment",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"agentassignment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AgentAssignmentMissProgHttpCode400Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bd3e90a5-63d1-41ff-b7aa-3ed88254dc6a",
+										"exec": [
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Infinit iStatus code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Infiniti errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Infiniti errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Infiniti errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Infiniti errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Infiniti errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"programcode\");});\r",
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Infiniti errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"value is not a valid enumeration member; permitted: 'nissan', 'infiniti', 'fca', 'vwcarnet'\");});\r",
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Infiniti errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"type_error.enum\");});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"isassigned\": true,\r\n\t\"programcode\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/agentassignment",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"agentassignment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AgentAssignmentWithoutKeyHttpCode403Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d76151d6-e6c3-4065-b453-1234cec96de9",
+										"exec": [
+											"pm.test(\"AgentAssignmentWithoutKeyHttpCode403Infiniti  Status code is 403\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"AgentAssignmentWithoutKeyHttpCode403Infiniti  message value\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"isassigned\": true,\r\n\t\"programcode\": \"infiniti\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/agentassignment",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"agentassignment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AgentAssignmentWithWrongKeyHttpCode403Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a3e2bfa3-a432-4e03-a8e1-dd63b873848d",
+										"exec": [
+											"pm.test(\"AgentAssignmentWithWrongKeyHttpCode403Infiniti  Status code is 403\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"AgentAssignmentWithWrongKeyHttpCode403Infiniti  message value\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "RctjkExrMD73k7S1dYE4C7XxbQ6mR28Y9l3yydeL1"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"isassigned\": true,\r\n\t\"programcode\": \"infiniti\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/agentassignment?X-API-KEY",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"agentassignment"
+									],
+									"query": [
+										{
+											"key": "X-API-KEY",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AgentAssignmentWrongProgHttpCode400NInfiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ceffa0b0-71fa-495c-9a1b-c71f9ac0d06d",
+										"exec": [
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Infiniti  Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Infiniti  errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Infiniti  errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Infiniti  errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Infiniti  errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Infiniti  errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"programcode\");});\r",
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Infiniti  errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"value is not a valid enumeration member; permitted: 'nissan', 'infiniti', 'fca', 'vwcarnet'\");});\r",
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Infiniti  errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"type_error.enum\");});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"isassigned\": true,\r\n\t\"programcode\": \"infiniti1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/agentassignment",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"agentassignment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AgentAssignmentMissIsAssignedCodeHttpCode400Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "72343690-bd4b-4538-85b3-36e33e010c7c",
+										"exec": [
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Infiniti  Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Infiniti  errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Infiniti  errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Infiniti  errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Infiniti  errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Infiniti  errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"isassigned\");});\r",
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Infiniti  errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"none is not an allowed value\");});\r",
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Infiniti  errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"type_error.none.not_allowed\");});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"isassigned\": null,\r\n\t\"programcode\": \"infiniti\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/agentassignment",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"agentassignment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AgentAssignmentMissRefIdCodeHttpCode400Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "da1382bb-5a39-43ab-abb6-8e2465bbd972",
+										"exec": [
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Infiniti  Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Infiniti  errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Infiniti  errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Infiniti  errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Infiniti  errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Infiniti  errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"referenceid\");});\r",
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Infiniti  errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"ReferenceId cannot be null or empty\");});\r",
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Infiniti  errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"value_error\");});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"\",\r\n\t\"isassigned\": true,\r\n\t\"programcode\": \"infiniti\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/agentassignment",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"agentassignment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TerminateHttpCode201Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "672afe03-877c-4626-acd0-24ada3258a0a",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"TerminateHttpCode201Infiniti  Status code is 201\", function () {\r",
+											"        pm.response.to.have.status(201);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"TerminateHttpCode201Infiniti  data.reference_id\", function () {pm.expect(jsonData.data.reference_id).to.eql(\"1902317561\");});\r",
+											"    pm.test(\"TerminateHttpCode201Infiniti  data.status value\", function () {pm.expect(jsonData.data.status).to.eql(\"201\");});\r",
+											"}\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "66187152-076f-416d-9ac6-9385a47eeb2f",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"programcode\": \"infiniti\",\r\n\t\"reasoncode\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/terminate",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"terminate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TerminateWithoutKeyHttpCode403Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "82fee617-9c69-48a4-a3d2-4574be7ce134",
+										"exec": [
+											"pm.test(\"TerminateWithoutKeyHttpCode403Infiniti  Status code is 403\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"TerminateWithoutKeyHttpCode403Infiniti  message value\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"reasoncode\": \"\",\r\n\t\"programcode\": \"infiniti\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/terminate",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"terminate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TerminateWithWrongKeyHttpCode403Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b0142008-f4dd-46da-93eb-009b95943195",
+										"exec": [
+											"pm.test(\"TerminateWithWrongKeyHttpCode403Infiniti  Status code is 403\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"TerminateWithWrongKeyHttpCode403Infiniti  message value\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "RctjkExrMD73k7S1dYE4C7XxbQ6mR28Y9l3yydeL1"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"reasoncode\": \"\",\r\n\t\"programcode\": \"infiniti\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/terminate",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"terminate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TerminateMissRefIdCodeHttpCode400Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "09247da5-0f2c-404b-8b13-8d160285d961",
+										"exec": [
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Infiniti  Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Infiniti  errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Infiniti  errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Infiniti  errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Infiniti  errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Infiniti  errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"referenceid\");});\r",
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Infiniti  errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"ReferenceId cannot be null or empty\");});\r",
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Infiniti  errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"value_error\");});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"\",\r\n\t\"reasoncode\": \"\",\r\n\t\"programcode\": \"infiniti\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/terminate",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"terminate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TerminateMissProgCodeHttpCode400Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "950005b8-d84c-46c2-8323-3216155ee079",
+										"exec": [
+											"pm.test(\"TerminateMissProgCodeHttpCode400Infiniti Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"TerminateMissProgCodeHttpCode400Infiniti errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"TerminateMissProgCodeHttpCode400Infiniti errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"TerminateMissProgCodeHttpCode400Infiniti errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"TerminateMissProgCodeHttpCode400Infiniti errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+											"pm.test(\"TerminateMissProgCodeHttpCode400Infiniti errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"programcode\");});\r",
+											"pm.test(\"TerminateMissProgCodeHttpCode400Infiniti errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"value is not a valid enumeration member; permitted: 'nissan', 'infiniti', 'fca', 'vwcarnet'\");});\r",
+											"pm.test(\"TerminateMissProgCodeHttpCode400Infiniti errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"type_error.enum\");});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"reasoncode\": \"\",\r\n\t\"programcode\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/terminate",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"terminate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TerminateWrongProgCodeHttpCode400Infiniti",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9c33a54d-4138-4249-82f6-3004cdcf41ea",
+										"exec": [
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Infiniti  Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Infiniti  errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Infiniti  errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Infiniti  errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Infiniti  errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Infiniti  errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"programcode\");});\r",
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Infiniti  errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"value is not a valid enumeration member; permitted: 'nissan', 'infiniti', 'fca', 'vwcarnet'\");});\r",
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Infiniti  errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"type_error.enum\");});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"reasoncode\": \"\",\r\n\t\"programcode\": \"infiniti1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/terminate",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"terminate"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Nissan",
+					"item": [
+						{
+							"name": "AgentAssignmentHttpCode201Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "389679f6-9b49-43d2-9b9c-eb7db30f6a7e",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"AgentAssignmentHttpCode201Nissan Status code is 201\", function () {\r",
+											"        pm.response.to.have.status(201);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"AgentAssignmentHttpCode201Nissan data.reference_id\", function () {pm.expect(jsonData.data.reference_id).to.eql(\"1902317561\");});\r",
+											"    pm.test(\"AgentAssignmentHttpCode201Nissan data.status value\", function () {pm.expect(jsonData.data.status).to.eql(\"201\");});\r",
+											"    pm.test(\"AgentAssignmentHttpCode201Nissan data.agent_assigned value\", function () {pm.expect(jsonData.data.agent_assigned).to.eql(true);});\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0dd6e6f7-4d49-4877-b6c5-43c7b4971c1e",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"isassigned\": true,\r\n\t\"programcode\": \"nissan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/agentassignment",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"agentassignment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AgentAssignmentMissProgHttpCode400Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "47cc20bd-eeb8-4e04-a290-8aa543feb06c",
+										"exec": [
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Nissan Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Nissan errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Nissan errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Nissan errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Nissan errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Nissan errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"programcode\");});\r",
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Nissan errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"value is not a valid enumeration member; permitted: 'nissan', 'infiniti', 'fca', 'vwcarnet'\");});\r",
+											"pm.test(\"AgentAssignmentMissProgHttpCode400Nissan errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"type_error.enum\");});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"isassigned\": true,\r\n\t\"programcode\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/agentassignment",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"agentassignment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AgentAssignmentWithoutKeyHttpCode403Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f750cb69-59ea-4f82-8e78-d75318933976",
+										"exec": [
+											"pm.test(\"AgentAssignmentWithoutKeyHttpCode403Nissan Status code is 403\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"AgentAssignmentWithoutKeyHttpCode403Nissan message value\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "RctjkExrMD73k7S1dYE4C7XxbQ6mR28Y9l3yydeL1",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"isassigned\": true,\r\n\t\"programcode\": \"nissan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/agentassignment",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"agentassignment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AgentAssignmentWithWrongKeyHttpCode403Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4b88e806-7e3b-4e4f-90e2-305545cdee11",
+										"exec": [
+											"pm.test(\"AgentAssignmentWithWrongKeyHttpCode403Nissan Status code is 403\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"AgentAssignmentWithWrongKeyHttpCode403Nissan message value\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "RctjkExrMD73k7S1dYE4C7XxbQ6mR28Y9l3yydeL1"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"isassigned\": true,\r\n\t\"programcode\": \"nissan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/agentassignment",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"agentassignment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AgentAssignmentWrongProgHttpCode400Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2451ce7f-8f03-47eb-8845-a74454d7f49b",
+										"exec": [
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Nissan Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Nissan errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Nissan errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Nissan errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Nissan errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Nissan errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"programcode\");});\r",
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Nissan errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"value is not a valid enumeration member; permitted: 'nissan', 'infiniti', 'fca', 'vwcarnet'\");});\r",
+											"pm.test(\"AgentAssignmentWrongProgHttpCode400Nissan errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"type_error.enum\");});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"isassigned\": true,\r\n\t\"programcode\": \"nissan1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/agentassignment",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"agentassignment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AgentAssignmentMissIsAssignedCodeHttpCode400Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d27d599e-6706-4705-a0a7-aeb7c6765272",
+										"exec": [
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Nissan Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Nissan errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Nissan errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Nissan errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Nissan errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Nissan errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"isassigned\");});\r",
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Nissan errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"none is not an allowed value\");});\r",
+											"pm.test(\"AgentAssignmentMissIsAssignedCodeHttpCode400Nissan errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"type_error.none.not_allowed\");});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"isassigned\": null,\r\n\t\"programcode\": \"nissan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/agentassignment",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"agentassignment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AgentAssignmentMissRefIdCodeHttpCode400Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "259447e2-a90c-4933-8283-44b53b0fa4c4",
+										"exec": [
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Nissan Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Nissan errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Nissan errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Nissan errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Nissan errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Nissan errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"referenceid\");});\r",
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Nissan errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"ReferenceId cannot be null or empty\");});\r",
+											"pm.test(\"AgentAssignmentMissRefIdCodeHttpCode400Nissan errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"value_error\");});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"\",\r\n\t\"isassigned\": true,\r\n\t\"programcode\": \"nissan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/agentassignment",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"agentassignment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TerminateHttpCode201Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f56f75e2-9649-468a-bda1-1c21061f4d89",
+										"exec": [
+											"var env = pm.environment.get(\"env\");\r",
+											"console.log(env);\r",
+											"if (env === \"qa\") {\r",
+											"}\r",
+											"else {\r",
+											"    pm.test(\"TerminateHttpCode201Nissan Status code is 201\", function () {\r",
+											"        pm.response.to.have.status(201);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"TerminateHttpCode201Nissan data.reference_id\", function () {pm.expect(jsonData.data.reference_id).to.eql(\"1902317561\");});\r",
+											"    pm.test(\"TerminateHttpCode201Nissan data.status value\", function () {pm.expect(jsonData.data.status).to.eql(\"201\");});\r",
+											"}\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "48c9ab0c-0ea4-449a-a1e6-dbf83c664402",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"programcode\": \"nissan\",\r\n\t\"reasoncode\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/terminate",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"terminate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TerminateWithoutKeyHttpCode403Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5708f3e6-c88e-429f-9a1a-e959bee10303",
+										"exec": [
+											"pm.test(\"TerminateWithoutKeyHttpCode403Nissan Status code is 403\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"TerminateWithoutKeyHttpCode403Nissan message value\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"reasoncode\": \"\",\r\n\t\"programcode\": \"nissan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/terminate",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"terminate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TerminateWithWrongKeyHttpCode403Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "93d739e1-6779-4f57-bc36-41335f7fedf9",
+										"exec": [
+											"pm.test(\"TerminateWithWrongKeyHttpCode403Nissan Status code is 403\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"TerminateWithWrongKeyHttpCode403Nissan message value\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "RctjkExrMD73k7S1dYE4C7XxbQ6mR28Y9l3yydeL1"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"reasoncode\": \"\",\r\n\t\"programcode\": \"nissan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/terminate",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"terminate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TerminateMissRefIdCodeHttpCode400Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f8744557-f6a3-4da3-94f3-a571cada3fe2",
+										"exec": [
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Nissan Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Nissan errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Nissan errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Nissan errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Nissan errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Nissan errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"referenceid\");});\r",
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Nissan errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"ReferenceId cannot be null or empty\");});\r",
+											"pm.test(\"TerminateMissRefIdCodeHttpCode400Nissan errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"value_error\");});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"\",\r\n\t\"reasoncode\": \"\",\r\n\t\"programcode\": \"nissan\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/terminate",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"terminate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TerminateMissProgCodeHttpCode400Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "99785dd5-bbae-4272-a17a-7332d48d3392",
+										"exec": [
+											"pm.test(\"TerminateMissProgCodeHttpCode400Nissan Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"TerminateMissProgCodeHttpCode400Nissan errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"TerminateMissProgCodeHttpCode400Nissan errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"TerminateMissProgCodeHttpCode400Nissan errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"TerminateMissProgCodeHttpCode400Nissan errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+											"pm.test(\"TerminateMissProgCodeHttpCode400Nissan errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"programcode\");});\r",
+											"pm.test(\"TerminateMissProgCodeHttpCode400Nissan errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"value is not a valid enumeration member; permitted: 'nissan', 'infiniti', 'fca', 'vwcarnet'\");});\r",
+											"pm.test(\"TerminateMissProgCodeHttpCode400Nissan errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"type_error.enum\");});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"reasoncode\": \"\",\r\n\t\"programcode\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/terminate",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"terminate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TerminateWrongProgCodeHttpCode400Nissan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "de1454ce-d08e-45d7-9eb9-9f0c1a783fd0",
+										"exec": [
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Nissan Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Nissan errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Nissan errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Nissan errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Nissan errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Nissan errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"programcode\");});\r",
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Nissan errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"value is not a valid enumeration member; permitted: 'nissan', 'infiniti', 'fca', 'vwcarnet'\");});\r",
+											"pm.test(\"TerminateWrongProgCodeHttpCode400Nissan errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"type_error.enum\");});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"type": "text",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"referenceid\": \"{{referenceId}}\",\r\n\t\"reasoncode\": \"\",\r\n\t\"programcode\": \"nissan1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/terminate",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"terminate"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "FCA- Terminate",
+			"item": [
+				{
+					"name": "Accepted CallTerminateHttpCode201FCA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "17412c97-b5e7-4bdf-a4fd-b38093e04840",
+								"exec": [
+									"var env = pm.environment.get(\"env\");\r",
+									"console.log(env);\r",
+									"if (env === \"qa\") {\r",
+									"}\r",
+									"else {\r",
+									"    pm.test(\"Accepted CallTerminateHttpCode201FCA Status code is 201\", function () {\r",
+									"        pm.response.to.have.status(201);\r",
+									"    });\r",
+									"\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    pm.test(\"Accepted CallTerminateHttpCode201FCA data.reference_id\", function () {pm.expect(jsonData.data.reference_id).to.eql(null);});\r",
+									"    pm.test(\"Accepted CallTerminateHttpCode201FCA data.status value\", function () {pm.expect(jsonData.data.status).to.eql(\"201\");});\r",
+									"    pm.test(\"Accepted CallTerminateHttpCode201FCA data.msisdn value\", function () {pm.expect(jsonData.data.msisdn).to.eql(\"13234826699\");});\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{X-API-KEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-API-KEY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{         \r\n            \r\n    \"callstatus\": \"TERMINATED\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bs_url}}/{{env}}/terminate/13234826699/programcode/fca/ctsversion/1.0",
+							"host": [
+								"{{bs_url}}"
+							],
+							"path": [
+								"{{env}}",
+								"terminate",
+								"13234826699",
+								"programcode",
+								"fca",
+								"ctsversion",
+								"1.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MsisdnDoesnotExistCallTerminateHttpCode404FCA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8134500b-e10a-4b7a-bccc-6f7cb505a9bb",
+								"exec": [
+									"pm.test(\"MsisdnDoesnotExistCallTerminateHttpCode404FCA  Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"MsisdnDoesnotExistCallTerminateHttpCode404FCA  errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"404\");});\r",
+									"pm.test(\"MsisdnDoesnotExistCallTerminateHttpCode404FCA  errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"NotFound\");});\r",
+									"pm.test(\"MsisdnDoesnotExistCallTerminateHttpCode404FCA  errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Not Found\");});\r",
+									"pm.test(\"MsisdnDoesnotExistCallTerminateHttpCode404FCA  errors[0].detail value\", function () {pm.expect(jsonData.errors[0].detail).to.eql(\"Record with specified msisdn does not exist\");});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{X-API-KEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"callstatus\":\"TERMINATED\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bs_url}}/{{env}}/terminate/13234826690/programcode/fca/ctsversion/1.0",
+							"host": [
+								"{{bs_url}}"
+							],
+							"path": [
+								"{{env}}",
+								"terminate",
+								"13234826690",
+								"programcode",
+								"fca",
+								"ctsversion",
+								"1.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MsisdEmptyCallTerminateHttpCode400FCA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a9780511-62ae-4fba-9aa5-bb79f7cba044",
+								"exec": [
+									"pm.test(\"MsisdEmptyCallTerminateHttpCode400FCA  Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"MsisdEmptyCallTerminateHttpCode400FCA  errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+									"pm.test(\"MsisdEmptyCallTerminateHttpCode400FCA  errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+									"pm.test(\"MsisdEmptyCallTerminateHttpCode400FCA  errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+									"pm.test(\"MsisdEmptyCallTerminateHttpCode400FCA  errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"body\");});\r",
+									"pm.test(\"MsisdEmptyCallTerminateHttpCode400FCA  errors[0].detail.location[1] value\", function () {pm.expect(jsonData.errors[0].detail.location[1]).to.eql(\"callstatus\");});\r",
+									"pm.test(\"MsisdEmptyCallTerminateHttpCode400FCA  errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"value is not a valid enumeration member; permitted: 'TERMINATED'\");});\r",
+									"pm.test(\"MsisdEmptyCallTerminateHttpCode400FCA  errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"type_error.enum\");});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{X-API-KEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-API-KEY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{            \r\n          \r\n    \"callstatus\": \"\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bs_url}}/{{env}}/terminate/13234826699/programcode/fca/ctsversion/1.0",
+							"host": [
+								"{{bs_url}}"
+							],
+							"path": [
+								"{{env}}",
+								"terminate",
+								"13234826699",
+								"programcode",
+								"fca",
+								"ctsversion",
+								"1.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MsisdNotAStringCallTerminateHttpCode404FCA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f5265fb7-da66-4569-b73f-e58a8bc1065f",
+								"exec": [
+									"pm.test(\"MsisdNotAStringCallTerminateHttpCode404FCA  Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"MsisdNotAStringCallTerminateHttpCode404FCA  errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"404\");});\r",
+									"pm.test(\"MsisdNotAStringCallTerminateHttpCode404FCA  errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"NotFound\");});\r",
+									"pm.test(\"MsisdNotAStringCallTerminateHttpCode404FCA  errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Not Found\");});\r",
+									"\r",
+									"pm.test(\"MsisdNotAStringCallTerminateHttpCode404FCA  errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail).to.eql(\"Record with specified msisdn does not exist\");});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{X-API-KEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-API-KEY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{            \r\n          \r\n    \"callstatus\": \"TERMINATED\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bs_url}}/{{env}}/terminate/{{}}/programcode/fca/ctsversion/1.0",
+							"host": [
+								"{{bs_url}}"
+							],
+							"path": [
+								"{{env}}",
+								"terminate",
+								"{{}}",
+								"programcode",
+								"fca",
+								"ctsversion",
+								"1.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CallTerminateHttpCode403NoKeyFCA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "eb39b0a4-7020-4d5f-8732-2a64c5e4b462",
+								"exec": [
+									"pm.test(\"CallTerminateHttpCode403NoKeyFCA  Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"CallTerminateHttpCode403NoKeyFCA  message value\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{            \r\n               \r\n    \"callstatus\": \"TERMINATED\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bs_url}}/{{env}}/stage/terminate/13234826699/programcode/fca/ctsversion/1.0",
+							"host": [
+								"{{bs_url}}"
+							],
+							"path": [
+								"{{env}}",
+								"stage",
+								"terminate",
+								"13234826699",
+								"programcode",
+								"fca",
+								"ctsversion",
+								"1.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CallTerminateHttpCode403BadKeyFCA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1946a17a-6612-40a1-85f5-ce178994f4e0",
+								"exec": [
+									"pm.test(\"CallTerminateHttpCode403BadKeyFCA Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"CallTerminateHttpCode403BadKeyFCA message value\", function () {pm.expect(jsonData.message).to.eql(\"Forbidden\");});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"type": "text",
+								"value": "dS9m27BVI88a4OyU1e29sxPQv6MIVeH4nYv2bPpL"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{            \r\n               \r\n    \"callstatus\": \"TERMINATED\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bs_url}}/{{env}}/terminate/13234826699/programcode/fca/ctsversion/1.0",
+							"host": [
+								"{{bs_url}}"
+							],
+							"path": [
+								"{{env}}",
+								"terminate",
+								"13234826699",
+								"programcode",
+								"fca",
+								"ctsversion",
+								"1.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CallTerminateHttpCode500FCA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cc6975b2-c1f3-47b9-b65e-3a1ece99acfc",
+								"exec": [
+									"var env = pm.environment.get(\"env\");\r",
+									"console.log(env);\r",
+									"if (env === \"qa\") {\r",
+									"}\r",
+									"else {\r",
+									"    pm.test(\"CallTerminateHttpCode500FCA Status code is 500\", function () {\r",
+									"        pm.response.to.have.status(500);\r",
+									"    });\r",
+									"   \r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{X-API-KEY}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{            \r\n               \r\n    \"callstatus\": \"TERMINATED\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bs_url}}/{{env}}/terminate/6174171877/programcode/fca/ctsversion/2.0",
+							"host": [
+								"{{bs_url}}"
+							],
+							"path": [
+								"{{env}}",
+								"terminate",
+								"6174171877",
+								"programcode",
+								"fca",
+								"ctsversion",
+								"2.0"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "HeathCheck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d992e62e-8f13-4ee4-827f-6c5c4fe8be0d",
+						"exec": [
+							"pm.test(\"HealthCheck Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"HealthCheck data.success value\", function () {\r",
+							"    pm.expect(jsonData.data.success).to.eql(true);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{X-API-KEY}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{bs_url}}/{{env}}/health",
+					"host": [
+						"{{bs_url}}"
+					],
+					"path": [
+						"{{env}}",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

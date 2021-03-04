@@ -1,0 +1,9 @@
+version: '3.4'
+services:
+  sonar:
+    image: sonarsource/sonar-scanner-cli
+    volumes:
+      - ../:/workspace
+    working_dir: /workspace
+    environment:
+      - SONAR_TOKEN

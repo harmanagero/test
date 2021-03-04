@@ -1,0 +1,52 @@
+logging:
+  environment: nonprod
+  application_name: Connected Vehicle
+  global_log_level: debug
+dynamo:
+  table_name: GLOBAL_CV_DATA_QA
+  supplement_table_name: GLOBAL_CV_SUPPLEMENTDATA_QA
+  endpoint: ~
+echo:
+  username: TEST
+  password: TEST
+  url: https://postman-echo.com/get
+siriusxm:
+  base_url: https://gwoutstage.ageroappsnonprod.corppvt.cloud/SiriusXM/QA/ServicePartnerSvc/ServicePartnerSvcPort
+  root_cert: /var/task/src/config/certs/corpvtcert.cer
+  wsdl: /var/task/src/config/wsdl/siriusxm.wsdl
+fca:
+  base_url: https://gwoutstage.ageroappsnonprod.corppvt.cloud/FCA/mtls-api.stage.nafta.fcagsdp.com
+  dynamo_table_name: GLOBAL_CV_DATA_QA
+  dynamo_supplement_table_name: GLOBAL_CV_SUPPLEMENTDATA_QA
+  api_key: ~
+  bcall_data_url: /v1.0/bcall
+  terminate_bcall_url: /v1.0/bcall/status
+  max_retries: 3
+  delay_for_each_retry: 4  
+  max_ani_length: 11
+  api_gateway_base_path: fca
+  root_cert: src/config/certs/corpvtcert.cer
+verizon:
+  base_url: https://gwoutstage.ageroappsnonprod.corppvt.cloud/VW/api-sit.vtitel.com/SOAP/RequestVehicleLocation
+  dynamo_table_name: GLOBAL_CV_DATA_QA
+  root_cert: src/config/certs/corpvtcert.cer
+  dynamodb_check_enable: True
+  dynamodb_check_timelimit: 2
+aeris:
+    base_url: https://gwoutstage.ageroappsnonprod.corppvt.cloud/CarNet/vwcnapigateway-uat-apigateway.vwusasite.com/cds/callcenter/v1/rCallInfo/msisdn/
+    dynamo_table_name: GLOBAL_CV_DATA_QA
+    root_cert: src/config/certs/corpvtcert.cer
+    dynamodb_check_enable: True
+    dynamodb_check_timelimit: 2
+vodafone:
+    dynamo_table_name: GLOBAL_CV_DATA_QA
+    dynamo_supplement_table_name: GLOBAL_CV_SUPPLEMENTDATA_QA
+tmna:
+    base_url: https://base_url_placeholder
+    terminate_url: https://terminate_url_placeholder
+    root_cert: src/config/certs/corpvtcert.cer
+wirelesscar:
+    base_url: https://gwoutdev.ageroappsnonprod.corppvt.cloud/Subaru/ccc.preprod.wc.subarucs.com/ccc/external/ifcci/ngtp/cci/callcenters/
+    wirelesscar_api_key: ~
+    callcenter_id: 1000
+    program_id: 2142

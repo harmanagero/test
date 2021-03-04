@@ -1,0 +1,14 @@
+**/*
+!node_modules
+!fca
+!Makefile
+!infrastructure
+!database
+!serverless
+!.devcontainer
+!postmancollections
+!src
+!Pipfile*
+!serverless.yml
+!config
+!.npmrc

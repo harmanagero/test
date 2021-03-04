@@ -1,0 +1,26 @@
+Resources:
+    ScheduledRule:
+      Type: AWS::Events::Rule
+      Properties:
+        Description: "ScheduledRule"
+        ScheduleExpression: "rate(10 minutes)"
+        State: "ENABLED"
+        Targets:
+          -
+            Arn:
+              Fn::GetAtt:
+                - "ApiDashrequestLambdaFunctionAliasLive"
+                - "Arn"
+            Id: ${self:service}-${self:custom.stage}
+
+    PermissionForEventsToInvokeLambda:
+      Type: AWS::Lambda::Permission
+      Properties:
+      FunctionName:
+          Ref: "ApiDashrequestLambdaFunctionAliasLive"
+      Action: "lambda:InvokeFunction"
+      Principal: "events.amazonaws.com"
+      SourceArn:
+          Fn::GetAtt:
+          - "ScheduledRule"
+          - "Arn"

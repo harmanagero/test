@@ -1,0 +1,12 @@
+from enum import Enum
+
+
+class InternalStatusType(str, Enum):
+    SUCCESS = "SUCCESS"
+    INTERNALSERVERERROR = "INTERNAL_SERVER_ERROR"
+    ERROR = "ERROR"
+    CANCELED = "CANCELED"
+    BADREQUEST = "BAD_REQUEST"
+    FORBIDDEN = "FORBIDDEN"
+    NOTFOUND = "NOT_FOUND"
+    UNKNOWN= "UNKNOWN"

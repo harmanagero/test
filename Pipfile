@@ -1,0 +1,44 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[[source]]
+name = "azure"
+url = "${PIP_EXTRA_INDEX_URL}"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+pytest-cov = "*"
+moto = "*"
+pre-commit = "*"
+uvicorn = "*"
+pytest-asyncio = "*"
+black = "*"
+bandit = "*"
+
+[packages]
+pydantic = "*"
+pynamodb = "*"
+fastapi = "*"
+mangum = "*"
+agero-python-logger = "*"
+agero-python-configuration = "*"
+boto3 = "*"
+requests = "*"
+zeep = "*"
+cerberus = "*"
+pyyaml = "*"
+
+[requires]
+python_version = "3.8"
+
+[scripts]
+api = "uvicorn src.api.api:app --reload --port 5000 --host 0.0.0.0"
+setup_local_dynamo = "python -m scripts.setup_local_dynamo"
+test = "python -m pytest -v --cov=. --cov-report=term --cov-report=xml --junitxml=test-results/pytest-report.xml --cov-report=html:coverage-report --disable-pytest-warnings tests/"
+bandit = "python -m bandit -r . -x ./tests -f json -o bandit.json"
+
+[pipenv]
+allow_prereleases = true

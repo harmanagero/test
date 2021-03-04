@@ -1,0 +1,20 @@
+setupvars:
+  accountId: 550632061203
+  certArn: arn:aws:acm:us-west-2:550632061203:certificate/fc2c23b5-e15f-4fd6-8035-9e76e6bf2e72
+  hostedZoneId: Z2NZXXTQTB41HR
+  environmentTag: PROD
+  vpc:
+    securityGroupIds:
+      - sg-0f9c7909a8a33cc88
+    subnetIds:
+      - subnet-071abbd930edfaf73
+      - subnet-0a02d6ecf76f388d8
+      - subnet-0356e8b6190207a0d
+  owner: Core Engineering Team
+  technicalTeam: Core Engineering Team
+  businessTeam: Client Service Analysts
+  ageroService: NGP
+  complianceType: NA
+  tier: APP
+  isngp: yes
+  application: connectedvehicle

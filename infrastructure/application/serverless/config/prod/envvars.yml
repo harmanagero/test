@@ -1,0 +1,2 @@
+envvars:
+  logging__environment: Production

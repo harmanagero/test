@@ -1,0 +1,12 @@
+setupvar:
+  environmentTag: QA
+  owner: Core Engineering Team
+  technicalTeam: Core Engineering Team
+  businessTeam: Client Service Analysts
+  ageroService: NGP
+  complianceType: NA
+  tier: DATA
+  isngp: yes
+  application: connectedvehicle
+  classificationLabel: Level2/Confidential
+  accountId: 282323038758

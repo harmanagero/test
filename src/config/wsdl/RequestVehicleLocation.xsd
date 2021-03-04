@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.hughestelematics.com/VehicleLocation" xmlns:tns="http://xmlns.hughestelematics.com/VehicleLocation" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="VehicleLocationRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Header">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="SourceName" maxOccurs="1" type="xsd:string" minOccurs="1"/>
+              <xsd:element name="TargetName" maxOccurs="1" type="xsd:string" minOccurs="0"/>
+              <xsd:element name="TransactionId" maxOccurs="1" type="xsd:string" minOccurs="1"/>
+              <xsd:element name="Timestamp" maxOccurs="1" type="xsd:string" minOccurs="1"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="CTIInteractionID" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="MDN" type="xsd:string" minOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="VehicleLocationResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="CallIdNumber" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="CallDate" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="CallTime" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="CustomerFirstName" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="CustomerLastName" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="VehicleYear" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="Make" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="Model" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ExteriorColor" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="VIN" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="FromLocationAddress" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="FromLocationCity" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="FromLocationState" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="FromLocationZip" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="FromLocationCountry" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="FromLocationLatitude" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="FromLocationLongitude" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="FromLocationPhoneNo" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="Altitude" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="Direction_heading" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="Location_confidence" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="Location_trueness" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="Cruising_range" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="Is_moving" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="Hmi_language" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="SRNumber" type="xsd:string" minOccurs="0"/>
+        <!--Added ServiceKeydata for VWChina dated Oct 04, 2013-->
+        <xsd:element name="ServiceKeyData" type="tns:ServiceKeyDataType" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element name="Response">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="ResponseCode" type="xsd:string" minOccurs="0"/>
+              <xsd:element name="ResponseStatus" type="xsd:string" minOccurs="0"/>
+              <xsd:element name="ResponseDescription" type="xsd:string" minOccurs="0"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="ServiceKeyDataType">
+    <xsd:sequence>
+      <xsd:element name="ServiceKeyDataID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ServiceKeyDataCategory" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ServiceKeyDataSubCategory" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ServiceKeyDataValue" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ServiceKeyDataPriority" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ServiceKeyDataLanguageCode" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

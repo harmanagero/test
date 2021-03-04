@@ -1,0 +1,13 @@
+setupvar:
+    environmentTag: STAGE
+    owner: Core Engineering Team
+    technicalTeam: Core Engineering Team
+    businessTeam: Client Service Analysts
+    ageroService: NGP
+    application: connectedvehicle
+
+    complianceType: NA
+    tier: DATA
+    isngp: yes
+    classificationLabel: Level2/Confidential
+    accountId: 282323038758

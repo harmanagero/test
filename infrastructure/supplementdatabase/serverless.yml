@@ -1,0 +1,40 @@
+# frameworkVersion: ">=1.41.0 <2.0.0"
+
+service: sls-connectedvehicle-databases-supplement
+provider:
+  name: aws
+  deploymentBucket: agero-${self:custom.accountId}-${self:custom.region}-sls-deploy # IMPORTANT!! Never change this!!
+
+  stackTags:
+    Name: ${self:service}-${self:custom.stage}
+    Application: connectedvehicle
+    Environment: ${self:custom.setupvars.environmentTag}
+    TechnicalTeam: ${self:custom.setupvars.technicalTeam}
+    BusinessTeam: ${self:custom.setupvars.businessTeam}
+    AgeroService: ${self:custom.setupvars.ageroService}
+    ComplianceType: ${self:custom.setupvars.complianceType}
+    ClassificationLabel: ${self:custom.setupvars.classificationLabel}
+    IsNGP: ${self:custom.setupvars.isngp}
+    Tier: ${self:custom.setupvars.tier}
+custom:
+  stage: ${opt:stage}
+  region: ${opt:region}
+  accountId: ${self:custom.setupvars.accountId}
+  setupvars: ${file(./serverless/config/${self:custom.stage}.yml):setupvar}
+
+resources:
+  - Description: Global Dynamodb supplement connected vehicle table
+  - ${file(./serverless/resources/dynamodb.yml)}
+  - Outputs:
+  
+      TableName:
+        Description: Name of the table
+        Value: !Ref Table
+        Export:
+          Name: ${self:service}-${self:custom.stage}-TableName
+
+      TableArn:
+        Description: Arn of the table
+        Value: !GetAtt Table.Arn
+        Export:
+          Name: ${self:service}-${self:custom.stage}-TableArn

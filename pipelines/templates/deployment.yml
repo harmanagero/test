@@ -1,0 +1,50 @@
+parameters:
+    - name: deploymentStage
+      type: string
+
+    - name: infrastructureStage
+      type: string
+
+    - name: deploymentRegion
+      type: string
+
+    - name: artifactName
+      type: string
+
+steps:
+
+    - task: PipAuthenticate@1
+      displayName: Setup Pip Authentication
+      inputs:
+        artifactFeeds: agero-python
+        onlyAddExtraIndex: true
+
+    - task: Docker@2
+      displayName: Login to DockerHub
+      inputs:
+        containerRegistry: agero_docker_hub
+        command: login
+
+    - script: |
+        make stage=${{ parameters.infrastructureStage }} region=${{parameters.deploymentRegion}} deploy-cv-infra
+      displayName: Deploy Infrastructure
+      workingDirectory: $(Pipeline.Workspace)/${{parameters.artifactName}}
+      condition: and(succeeded(), eq('${{ parameters.deploymentRegion }}', 'us-east-1'))
+
+
+    - script: |
+        make stage=${{ parameters.deploymentStage }} region=${{parameters.deploymentRegion}} deploy-cv-database
+      displayName: Deploy Primary Database Table
+      workingDirectory: $(Pipeline.Workspace)/${{parameters.artifactName}}
+      #condition: and(succeeded(), eq('${{ parameters.deploymentRegion }}', 'us-east-1'))
+
+    - script: |
+        make stage=${{ parameters.deploymentStage }} region=${{parameters.deploymentRegion}} deploy-cv-database-supplement
+      displayName: Deploy Supplement Database Table
+      workingDirectory: $(Pipeline.Workspace)/${{parameters.artifactName}}
+      #condition: and(succeeded(), eq('${{ parameters.deploymentRegion }}', 'us-east-1'))
+
+    - script: |
+        make stage=${{ parameters.deploymentStage }} region=${{parameters.deploymentRegion}} deploy-cv-api
+      displayName: Deploy API
+      workingDirectory: $(Pipeline.Workspace)/${{parameters.artifactName}}

@@ -1,0 +1,596 @@
+{
+	"info": {
+		"_postman_id": "b8c8159c-8299-4337-9461-730dbfb5dcba",
+		"name": "CVGatewayAPIApigee",
+		"description": "Regression testing for CVGatewayAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Porsche_1.0 Apigee",
+			"item": [
+				{
+					"name": "Porsche_SaveVehicleData Apigee",
+					"item": [
+						{
+							"name": "Apigee_SaveVehicleDataHttpCode200_11Digit_Porsche",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"    pm.test(\"Apigee_SaveVehicleDataHttpCode200_11Digit_Porsche Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"    \r",
+											"   pm.test(\"Apigee_SaveVehicleDataHttpCode200_11Digit_Porsche data.msisdn\", function () {pm.expect(jsonData.data.msisdn).to.eql(\"17608416476\");});\r",
+											"    pm.test(\"Apigee_SaveVehicleDataHttpCode200_11Digit_Porsche data.status value\", function () {pm.expect(jsonData.data.status).to.eql(\"200\");});\r",
+											"    pm.test(\"Apigee_SaveVehicleDataHttpCode200_11Digit_Porsche data.responsemessage\", function () {pm.expect(jsonData.data.responsemessage).to.eql(\"Successfully saved the vehicledata for msisdn: 17608416476\");});\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{x-apikey}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "x-apikey",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"countryCode\":\"US\",\r\n    \"timestamp\":\"1536575714\",\r\n    \"gpsData\": {\r\n        \"latitude\":\"+40.67623\",\r\n        \"longitude\":\"-074.00076\"\r\n    },\r\n        \"vehicleData\": {\r\n            \"vin\":\"WP1AA2A24JKA06336\",\r\n            \"registration\": {\r\n                \"number\":\"GVW1649\",\r\n                \"stateCode\":\"NY\",\r\n                \"countryCode\":\"US\"\r\n        },\r\n                \"crankInhibition\":\"0\",\r\n                \"ignitionKey\":\"OFF\",\r\n                \"mileage\": {\r\n                    \"value\":\"3194\",\r\n                    \"unit\":\"mi\"\r\n        },\r\n                    \"fuelLevelPercentage\":\"98\",\r\n                    \"evBatteryPercentage\":\"0\",\r\n                    \"range\": {\"value\":\"419\",\"unit\":\"mi\"\r\n        },\r\n                    \"tyrePressureDelta\": {\r\n                        \"unit\":\"bar\",\r\n                        \"frontLeft\":\"-1.4\",\r\n                        \"frontRight\":\"+0\",\r\n                        \"rearLeft\":\"+0.1\",\r\n                        \"rearRight\":\"+0.1\"\r\n        }\r\n    },\r\n                        \"userData\": {\"phoneContact\":\"+176-084-16-476\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apigee_url}}/vehicleinfo",
+									"host": [
+										"{{apigee_url}}"
+									],
+									"path": [
+										"vehicleinfo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Apigee_SaveVehicleDataHttpCode200_10Digit_Porsche",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"    pm.test(\"Apigee_SaveVehicleDataHttpCode200_10Digit_Porsche  Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    var jsonData = pm.response.json();\r",
+											"    \r",
+											"   pm.test(\"Apigee_SaveVehicleDataHttpCode200_10Digit_Porsche  data.msisdn\", function () {pm.expect(jsonData.data.msisdn).to.eql(\"17608416476\");});\r",
+											"    pm.test(\"Apigee_SaveVehicleDataHttpCode200_10Digit_Porsche data.status value\", function () {pm.expect(jsonData.data.status).to.eql(\"200\");});\r",
+											"    pm.test(\"Apigee_SaveVehicleDataHttpCode200_10Digit_Porsche data.responsemessage\", function () {pm.expect(jsonData.data.responsemessage).to.eql(\"Successfully saved the vehicledata for msisdn: 17608416476\");});\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{x-apikey}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "x-apikey",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"countryCode\":\"US\",\r\n    \"timestamp\":\"1536575714\",\r\n    \"gpsData\": {\r\n        \"latitude\":\"+40.67623\",\r\n        \"longitude\":\"-074.00076\"\r\n    },\r\n        \"vehicleData\": {\r\n            \"vin\":\"WP1AA2A24JKA06336\",\r\n            \"registration\": {\r\n                \"number\":\"GVW1649\",\r\n                \"stateCode\":\"NY\",\r\n                \"countryCode\":\"US\"\r\n        },\r\n                \"crankInhibition\":\"0\",\r\n                \"ignitionKey\":\"OFF\",\r\n                \"mileage\": {\r\n                    \"value\":\"3194\",\r\n                    \"unit\":\"mi\"\r\n        },\r\n                    \"fuelLevelPercentage\":\"98\",\r\n                    \"evBatteryPercentage\":\"0\",\r\n                    \"range\": {\"value\":\"419\",\"unit\":\"mi\"\r\n        },\r\n                    \"tyrePressureDelta\": {\r\n                        \"unit\":\"bar\",\r\n                        \"frontLeft\":\"-1.4\",\r\n                        \"frontRight\":\"+0\",\r\n                        \"rearLeft\":\"+0.1\",\r\n                        \"rearRight\":\"+0.1\"\r\n        }\r\n    },\r\n                        \"userData\": {\"phoneContact\":\"+7608416476\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apigee_url}}/vehicleinfo",
+									"host": [
+										"{{apigee_url}}"
+									],
+									"path": [
+										"vehicleinfo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Apigee_SaveVehData_empty_msisdnTerminateHttpCode400_Porsche",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"    pm.test(\"Apigee_SaveVehData_empty_msisdnTerminateHttpCode400_Porsche status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Apigee_SaveVehData_empty_msisdnTerminateHttpCode400_Porsche errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"Apigee_SaveVehData_empty_msisdnTerminateHttpCode400_Porsche errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"Apigee_SaveVehData_empty_msisdnTerminateHttpCode400_Porsche errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"Apigee_SaveVehData_empty_msisdnTerminateHttpCode400_Porsche errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"msisdn\");});\r",
+											"pm.test(\"Apigee_SaveVehData_empty_msisdnTerminateHttpCode400_Porsche errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"Msisdn cannot be null or empty\");});\r",
+											"pm.test(\"Apigee_SaveVehData_empty_msisdnTerminateHttpCode400_Porsche errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"value_error\");});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{x-apikey}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "x-apikey",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"countryCode\": \"US\",\r\n    \"timestamp\": \"1536575714\",\r\n    \"gpsData\": {\r\n        \"latitude\": \"+40.67623\",\r\n        \"longitude\": \"-074.00076\"\r\n    },\r\n    \"vehicleData\": {\r\n        \"vin\": \"WP1AA2A24JKA06336\",\r\n        \"registration\": {\r\n            \"number\": \"GVW1649\",\r\n            \"stateCode\": \"NY\",\r\n            \"countryCode\": \"US\"\r\n        },\r\n        \"crankInhibition\": \"0\",\r\n        \"ignitionKey\": \"OFF\",\r\n        \"mileage\": {\r\n            \"value\": \"3194\",\r\n            \"unit\": \"mi\"\r\n        },\r\n        \"fuelLevelPercentage\": \"98\",\r\n        \"evBatteryPercentage\": \"0\",\r\n        \"range\": {\r\n            \"value\": \"419\",\r\n            \"unit\": \"mi\"\r\n        },\r\n        \"tyrePressureDelta\": {\r\n            \"unit\": \"bar\",\r\n            \"frontLeft\": \"-1.4\",\r\n            \"frontRight\": \"+0\",\r\n            \"rearLeft\": \"+0.1\",\r\n            \"rearRight\": \"+0.1\"\r\n        }\r\n    },\r\n    \"userData\": {\r\n        \"phoneContact\": \"+\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apigee_url}}/vehicleinfo",
+									"host": [
+										"{{apigee_url}}"
+									],
+									"path": [
+										"vehicleinfo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Apigee_SaveVehData_msisdn_lessthan10charTerminateHttpCode400_Porsche",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"    pm.test(\"Apigee_SaveVehData_msisdn_lessthan10charTerminateHttpCode400_Porsche status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Apigee_SaveVehData_msisdn_lessthan10charTerminateHttpCode400_Porsche errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"Apigee_SaveVehData_msisdn_lessthan10charTerminateHttpCode400_Porsche errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"Apigee_SaveVehData_msisdn_lessthan10charTerminateHttpCode400_Porsche errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"Apigee_SaveVehData_msisdn_lessthan10charTerminateHttpCode400_Porsche errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"msisdn\");});\r",
+											"pm.test(\"Apigee_SaveVehData_msisdn_lessthan10charTerminateHttpCode400_Porsche errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"Msisdn character length should be minimum 10 digit numbers\");});\r",
+											"pm.test(\"Apigee_SaveVehData_msisdn_lessthan10charTerminateHttpCode400_Porsche errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"value_error\");});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{x-apikey}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "x-apikey",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"countryCode\": \"US\",\r\n    \"timestamp\": \"1536575714\",\r\n    \"gpsData\": {\r\n        \"latitude\": \"+40.67623\",\r\n        \"longitude\": \"-074.00076\"\r\n    },\r\n    \"vehicleData\": {\r\n        \"vin\": \"WP1AA2A24JKA06336\",\r\n        \"registration\": {\r\n            \"number\": \"GVW1649\",\r\n            \"stateCode\": \"NY\",\r\n            \"countryCode\": \"US\"\r\n        },\r\n        \"crankInhibition\": \"0\",\r\n        \"ignitionKey\": \"OFF\",\r\n        \"mileage\": {\r\n            \"value\": \"3194\",\r\n            \"unit\": \"mi\"\r\n        },\r\n        \"fuelLevelPercentage\": \"98\",\r\n        \"evBatteryPercentage\": \"0\",\r\n        \"range\": {\r\n            \"value\": \"419\",\r\n            \"unit\": \"mi\"\r\n        },\r\n        \"tyrePressureDelta\": {\r\n            \"unit\": \"bar\",\r\n            \"frontLeft\": \"-1.4\",\r\n            \"frontRight\": \"+0\",\r\n            \"rearLeft\": \"+0.1\",\r\n            \"rearRight\": \"+0.1\"\r\n        }\r\n    },\r\n    \"userData\": {\r\n        \"phoneContact\": \"+760841646\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apigee_url}}/vehicleinfo",
+									"host": [
+										"{{apigee_url}}"
+									],
+									"path": [
+										"vehicleinfo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Apigee_SaveVehDataNonNumericMsisdnTerminateHttpCode400_Porsche",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"    pm.test(\"Apigee_SaveVehDataNonNumericMsisdnTerminateHttpCode400_Porsche status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Apigee_SaveVehDataNonNumericMsisdnTerminateHttpCode400_Porsche errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"400\");});\r",
+											"pm.test(\"Apigee_SaveVehDataNonNumericMsisdnTerminateHttpCode400_Porsche errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"BadRequest\");});\r",
+											"pm.test(\"Apigee_SaveVehDataNonNumericMsisdnTerminateHttpCode400_Porsche errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Bad Request\");});\r",
+											"pm.test(\"SaveVehData_incorrect_versionCodeTerminateHttpCode400_Porsche errors[0].detail.location[0] value\", function () {pm.expect(jsonData.errors[0].detail.location[0]).to.eql(\"msisdn\");});\r",
+											"pm.test(\"SaveVehData_incorrect_versionCodeTerminateHttpCode400_Porsche errors[0].detail.message value\", function () {pm.expect(jsonData.errors[0].detail.message).to.eql(\"Msisdn has non numeric characters\");});\r",
+											"pm.test(\"SaveVehData_incorrect_versionCodeTerminateHttpCode400_Porsche errors[0].detail.type value\", function () {pm.expect(jsonData.errors[0].detail.type).to.eql(\"value_error\");});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{x-apikey}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "x-apikey",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"countryCode\":\"US\",\r\n    \"timestamp\":\"1536575714\",\r\n    \"gpsData\": {\r\n        \"latitude\":\"+40.67623\",\r\n        \"longitude\":\"-074.00076\"\r\n    },\r\n        \"vehicleData\": {\r\n            \"vin\":\"WP1AA2A24JKA06336\",\r\n            \"registration\": {\r\n                \"number\":\"GVW1649\",\r\n                \"stateCode\":\"NY\",\r\n                \"countryCode\":\"US\"\r\n        },\r\n                \"crankInhibition\":\"0\",\r\n                \"ignitionKey\":\"OFF\",\r\n                \"mileage\": {\r\n                    \"value\":\"3194\",\r\n                    \"unit\":\"mi\"\r\n        },\r\n                    \"fuelLevelPercentage\":\"98\",\r\n                    \"evBatteryPercentage\":\"0\",\r\n                    \"range\": {\"value\":\"419\",\"unit\":\"mi\"\r\n        },\r\n                    \"tyrePressureDelta\": {\r\n                        \"unit\":\"bar\",\r\n                        \"frontLeft\":\"-1.4\",\r\n                        \"frontRight\":\"+0\",\r\n                        \"rearLeft\":\"+0.1\",\r\n                        \"rearRight\":\"+0.1\"\r\n        }\r\n    },\r\n                        \"userData\": {\"phoneContact\":\"7608416476/\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apigee_url}}/vehicleinfo",
+									"host": [
+										"{{apigee_url}}"
+									],
+									"path": [
+										"vehicleinfo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Apigee_SaveVehDataWrongKeyCodeTerminateHttpCode401_Porsche",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"    pm.test(\"Apigee_SaveVehDataWrongKeyCodeTerminateHttpCode401_Porsche Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"pm.test(\"Apigee_SaveVehDataWrongKeyCodeTerminateHttpCode401_Porsche message value\", function () {pm.expect(jsonData.fault.faultstring).to.eql(\"Invalid ApiKey\");});\r",
+											"pm.test(\"Apigee_SaveVehDataWrongKeyCodeTerminateHttpCode401_Porsche message value\", function () {pm.expect(jsonData.fault.detail.errorcode).to.eql(\"oauth.v2.InvalidApiKey\");});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "Pu1abi170swwoSFTAOA0uvGhGAZ3LKrZ",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "x-apikey",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"countryCode\": \"US\",\r\n    \"timestamp\": \"1536575714\",\r\n    \"gpsData\": {\r\n        \"latitude\": \"+40.67623\",\r\n        \"longitude\": \"-074.00076\"\r\n    },\r\n    \"vehicleData\": {\r\n        \"vin\": \"WP1AA2A24JKA06336\",\r\n        \"registration\": {\r\n            \"number\": \"GVW1649\",\r\n            \"stateCode\": \"NY\",\r\n            \"countryCode\": \"US\"\r\n        },\r\n        \"crankInhibition\": \"0\",\r\n        \"ignitionKey\": \"OFF\",\r\n        \"mileage\": {\r\n            \"value\": \"3194\",\r\n            \"unit\": \"mi\"\r\n        },\r\n        \"fuelLevelPercentage\": \"98\",\r\n        \"evBatteryPercentage\": \"0\",\r\n        \"range\": {\r\n            \"value\": \"419\",\r\n            \"unit\": \"mi\"\r\n        },\r\n        \"tyrePressureDelta\": {\r\n            \"unit\": \"bar\",\r\n            \"frontLeft\": \"-1.4\",\r\n            \"frontRight\": \"+0\",\r\n            \"rearLeft\": \"+0.1\",\r\n            \"rearRight\": \"+0.1\"\r\n        }\r\n    },\r\n    \"userData\": {\r\n        \"phoneContact\": \"+12019161720\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apigee_url}}/vehicleinfo",
+									"host": [
+										"{{apigee_url}}"
+									],
+									"path": [
+										"vehicleinfo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Apigee_SaveVehData_NoKeyCodeTerminateHttpCode401_Porsche",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"    pm.test(\"Apigee_SaveVehData_NoKeyCodeTerminateHttpCode403_Porsche Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Apigee_SaveVehData_NoKeyCodeTerminateHttpCode401_Porsche message value\", function () {pm.expect(jsonData.fault.faultstring).to.eql(\"Invalid ApiKey\");});\r",
+											"\r",
+											"pm.test(\"Apigee_SaveVehData_NoKeyCodeTerminateHttpCode401_Porsche message value\", function () {pm.expect(jsonData.fault.detail.errorcode).to.eql(\"oauth.v2.InvalidApiKey\");});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "x-apikey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"countryCode\": \"US\",\r\n    \"timestamp\": \"1536575714\",\r\n    \"gpsData\": {\r\n        \"latitude\": \"+40.67623\",\r\n        \"longitude\": \"-074.00076\"\r\n    },\r\n    \"vehicleData\": {\r\n        \"vin\": \"WP1AA2A24JKA06336\",\r\n        \"registration\": {\r\n            \"number\": \"GVW1649\",\r\n            \"stateCode\": \"NY\",\r\n            \"countryCode\": \"US\"\r\n        },\r\n        \"crankInhibition\": \"0\",\r\n        \"ignitionKey\": \"OFF\",\r\n        \"mileage\": {\r\n            \"value\": \"3194\",\r\n            \"unit\": \"mi\"\r\n        },\r\n        \"fuelLevelPercentage\": \"98\",\r\n        \"evBatteryPercentage\": \"0\",\r\n        \"range\": {\r\n            \"value\": \"419\",\r\n            \"unit\": \"mi\"\r\n        },\r\n        \"tyrePressureDelta\": {\r\n            \"unit\": \"bar\",\r\n            \"frontLeft\": \"-1.4\",\r\n            \"frontRight\": \"+0\",\r\n            \"rearLeft\": \"+0.1\",\r\n            \"rearRight\": \"+0.1\"\r\n        }\r\n    },\r\n    \"userData\": {\r\n        \"phoneContact\": \"+12019161720\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apigee_url}}/vehicleinfo",
+									"host": [
+										"{{apigee_url}}"
+									],
+									"path": [
+										"vehicleinfo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Apigee_SaveVehDataNotFoundTerminateHttpCode404_Porsche",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"    pm.test(\"Apigee_SaveVehDataNotFoundTerminateHttpCode404_Porsche status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Apigee_SaveVehDataNotFoundTerminateHttpCode404_Porsche errors[0].status value\", function () {pm.expect(jsonData.errors[0].status).to.eql(\"404\");});\r",
+											"pm.test(\"Apigee_SaveVehDataNotFoundTerminateHttpCode404_Porsche errors[0].code value\", function () {pm.expect(jsonData.errors[0].code).to.eql(\"NotFound\");});\r",
+											"pm.test(\"Apigee_SaveVehDataNotFoundTerminateHttpCode404_Porsche errors[0].title value\", function () {pm.expect(jsonData.errors[0].title).to.eql(\"Not Found\");});\r",
+											"pm.test(\"Apigee_SaveVehDataNotFoundTerminateHttpCode404_Porsche errors[0].detail value\", function () {pm.expect(jsonData.errors[0].detail).to.eql(\"Missing Resource URI\");});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{x-apikey}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "x-apikey",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"countryCode\": \"US\",\r\n    \"timestamp\": \"1536575714\",\r\n    \"gpsData\": {\r\n        \"latitude\": \"+40.67623\",\r\n        \"longitude\": \"-074.00076\"\r\n    },\r\n    \"vehicleData\": {\r\n        \"vin\": \"WP1AA2A24JKA06336\",\r\n        \"registration\": {\r\n            \"number\": \"GVW1649\",\r\n            \"stateCode\": \"NY\",\r\n            \"countryCode\": \"US\"\r\n        },\r\n        \"crankInhibition\": \"0\",\r\n        \"ignitionKey\": \"OFF\",\r\n        \"mileage\": {\r\n            \"value\": \"3194\",\r\n            \"unit\": \"mi\"\r\n        },\r\n        \"fuelLevelPercentage\": \"98\",\r\n        \"evBatteryPercentage\": \"0\",\r\n        \"range\": {\r\n            \"value\": \"419\",\r\n            \"unit\": \"mi\"\r\n        },\r\n        \"tyrePressureDelta\": {\r\n            \"unit\": \"bar\",\r\n            \"frontLeft\": \"-1.4\",\r\n            \"frontRight\": \"+0\",\r\n            \"rearLeft\": \"+0.1\",\r\n            \"rearRight\": \"+0.1\"\r\n        }\r\n    },\r\n    \"userData\": {\r\n        \"phoneContact\": \"201916172\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apigee_url}}/vehicleinf",
+									"host": [
+										"{{apigee_url}}"
+									],
+									"path": [
+										"vehicleinf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Apigee_SaveVehDataInternalServerErrorCodeTerminateHttpCode500_Porsche",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{x-apikey}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "x-apikey",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"countryCode\": \"US\",\r\n    \"timestamp\": \"1536575714\",\r\n    \"gpsData\": {\r\n        \"latitude\": \"+40.67623\",\r\n        \"longitude\": \"-074.00076\"\r\n    },\r\n    \"vehicleData\": {\r\n        \"vin\": \"WP1AA2A24JKA06336\",\r\n        \"registration\": {\r\n            \"number\": \"GVW1649\",\r\n            \"stateCode\": \"NY\",\r\n            \"countryCode\": \"US\"\r\n        },\r\n        \"crankInhibition\": \"0\",\r\n        \"ignitionKey\": \"OFF\",\r\n        \"mileage\": {\r\n            \"value\": \"3194\",\r\n            \"unit\": \"mi\"\r\n        },\r\n        \"fuelLevelPercentage\": \"98\",\r\n        \"evBatteryPercentage\": \"0\",\r\n        \"range\": {\r\n            \"value\": \"419\",\r\n            \"unit\": \"mi\"\r\n        },\r\n        \"tyrePressureDelta\": {\r\n            \"unit\": \"bar\",\r\n            \"frontLeft\": \"-1.4\",\r\n            \"frontRight\": \"+0\",\r\n            \"rearLeft\": \"+0.1\",\r\n            \"rearRight\": \"+0.1\"\r\n        }\r\n    },\r\n    \"userData\": {\r\n        \"phoneContact\": \"+12019161720\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apigee_url}}/vehicleinfo",
+									"host": [
+										"{{apigee_url}}"
+									],
+									"path": [
+										"vehicleinfo"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

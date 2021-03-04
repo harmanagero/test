@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:svprtnr-svc="http://www.atxg.com/services/t3/ts/svcpartnersvc" xmlns:svprtnr-xsd="http://www.atxg.com/schemas/t3/ts/svcpartnersvc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicePartnerSvc" targetNamespace="http://www.atxg.com/services/t3/ts/svcpartnersvc">
+
+    <types>
+        
+        
+    <xsd:schema>
+            <xsd:import namespace="http://www.atxg.com/schemas/t3/ts/svcpartnersvc" schemaLocation="servicepartnersvcport.xsd"/>
+        </xsd:schema>
+  </types>
+
+
+    <message name="ReadDetailDataRequest">
+        <part element="svprtnr-xsd:read-detail-data-request-message" name="read-detail-data-request"/>
+    </message>
+    <message name="ReadDetailDataResponse">
+        <part element="svprtnr-xsd:read-detail-data-response-message" name="read-detail-data-response"/>
+    </message>
+
+    <message name="ReadDiagnosticDataRequest">
+        <part element="svprtnr-xsd:read-diagnostic-data-request-message" name="read-diagnostic-data-request"/>
+    </message>
+    <message name="ReadDiagnosticDataResponse">
+        <part element="svprtnr-xsd:read-diagnostic-data-response-message" name="read-diagnostic-data-response"/>
+    </message>
+    
+    <message name="RemoveNotifyRequest">
+        <part element="svprtnr-xsd:remove-notify-request-message" name="remove-notify-request"/>
+    </message>
+    <message name="RemoveNotifyResponse">
+        <part element="svprtnr-xsd:remove-notify-response-message" name="remove-notify-response"/>
+    </message>
+        
+    <message name="RequestServiceRequest">
+        <part element="svprtnr-xsd:request-service-request-message" name="request-service-request"/>
+    </message>
+    <message name="RequestServiceResponse">
+        <part element="svprtnr-xsd:request-service-response-message" name="request-service-response"/>
+    </message>
+    
+    <message name="RetransmitRequest">
+        <part element="svprtnr-xsd:retransmit-request-message" name="retransmit-request"/>
+    </message>
+    <message name="RetransmitResponse">
+        <part element="svprtnr-xsd:retransmit-response-message" name="retransmit-response"/>
+    </message>
+    
+    <message name="AgentAssignedRequest">
+        <part element="svprtnr-xsd:agent-assigned-request-message" name="agent-assigned-request"/>
+    </message>
+    <message name="AgentAssignedResponse">
+        <part element="svprtnr-xsd:agent-assigned-response-message" name="agent-assigned-response"/>
+    </message>
+    
+    <message name="SendNotificationRequest">
+        <part element="svprtnr-xsd:send-notification-request-message" name="send-notification-request"/>
+    </message>
+    <message name="SendNotificationResponse">
+        <part element="svprtnr-xsd:send-notification-response-message" name="send-notification-response"/>
+    </message>
+    
+    <message name="SendPoiRequest">
+        <part element="svprtnr-xsd:send-poi-request-message" name="send-poi-request"/>
+    </message>
+    <message name="SendPoiResponse">
+        <part element="svprtnr-xsd:send-poi-response-message" name="send-poi-response"/>
+    </message>
+    
+    <message name="TerminateRequest">
+        <part element="svprtnr-xsd:terminate-request-message" name="terminate-request"/>
+    </message>
+    <message name="TerminateResponse">
+        <part element="svprtnr-xsd:terminate-response-message" name="terminate-response"/>
+    </message>
+    
+    
+    <portType name="ServicePartnerSvcPortType">
+        <operation name="readDetailData">
+            <input message="svprtnr-svc:ReadDetailDataRequest" name="read-detail-data-request"/>
+            <output message="svprtnr-svc:ReadDetailDataResponse" name="read-detail-data-response"/>
+        </operation> 
+        <operation name="readDiagnosticData">
+            <input message="svprtnr-svc:ReadDiagnosticDataRequest" name="read-diagnostic-data-request"/>
+            <output message="svprtnr-svc:ReadDiagnosticDataResponse" name="read-diagnostic-data-response"/>
+        </operation> 
+        <operation name="removeNotify">
+            <input message="svprtnr-svc:RemoveNotifyRequest" name="remove-notify-request"/>
+            <output message="svprtnr-svc:RemoveNotifyResponse" name="remove-notify-response"/>
+        </operation>
+        <operation name="requestService">
+            <input message="svprtnr-svc:RequestServiceRequest" name="request-service-request"/>
+            <output message="svprtnr-svc:RequestServiceResponse" name="request-service-response"/>
+        </operation>
+        <operation name="retransmit">
+            <input message="svprtnr-svc:RetransmitRequest" name="retransmit-request"/>
+            <output message="svprtnr-svc:RetransmitResponse" name="retransmit-response"/>
+        </operation>
+        <operation name="agentAssigned">
+            <input message="svprtnr-svc:AgentAssignedRequest" name="agent-assigned-request"/>
+            <output message="svprtnr-svc:AgentAssignedResponse" name="agent-assigned-response"/>
+        </operation>
+        <operation name="sendNotification">
+            <input message="svprtnr-svc:SendNotificationRequest" name="send-notification-request"/>
+            <output message="svprtnr-svc:SendNotificationResponse" name="send-notification-response"/>
+        </operation>        
+        <operation name="sendPoi">
+            <input message="svprtnr-svc:SendPoiRequest" name="send-poi-request"/>
+            <output message="svprtnr-svc:SendPoiResponse" name="send-poi-response"/>
+        </operation>        
+        <operation name="terminate">
+            <input message="svprtnr-svc:TerminateRequest" name="terminate-request"/>
+            <output message="svprtnr-svc:TerminateResponse" name="terminate-response"/>
+        </operation>        
+    </portType>
+    
+    <binding name="ServicePartnerSvcBinding" type="svprtnr-svc:ServicePartnerSvcPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="readDetailData">
+            <soap:operation soapAction="readDetailData"/>
+            <input name="read-detail-data-request">
+                <soap:body use="literal"/>
+            </input>
+            <output name="read-detail-data-response">
+                <soap:body use="literal"/>
+            </output>
+        </operation>      
+        <operation name="readDiagnosticData">
+            <soap:operation soapAction="readDiagnosticData"/>
+            <input name="read-diagnostic-data-request">
+                <soap:body use="literal"/>
+            </input>
+            <output name="read-diagnostic-data-response">
+                <soap:body use="literal"/>
+            </output>
+        </operation>      
+        <operation name="removeNotify">
+            <soap:operation soapAction="removeNotify"/>
+            <input name="remove-notify-request">
+                <soap:body use="literal"/>
+            </input>
+            <output name="remove-notify-response">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="requestService">
+            <soap:operation soapAction="requestService"/>
+            <input name="request-service-request">
+                <soap:body use="literal"/>
+            </input>
+            <output name="request-service-response">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="retransmit">
+            <soap:operation soapAction="retransmit"/>
+            <input name="retransmit-request">
+                <soap:body use="literal"/>
+            </input>
+            <output name="retransmit-response">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="agentAssigned">
+            <soap:operation soapAction="agentAssigned"/>
+            <input name="agent-assigned-request">
+                <soap:body use="literal"/>
+            </input>
+            <output name="agent-assigned-response">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="sendNotification">
+            <soap:operation soapAction="sendNotification"/>
+            <input name="send-notification-request">
+                <soap:body use="literal"/>
+            </input>
+            <output name="send-notification-response">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="sendPoi">
+            <soap:operation soapAction="sendPoi"/>
+            <input name="send-poi-request">
+                <soap:body use="literal"/>
+            </input>
+            <output name="send-poi-response">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="terminate">
+            <soap:operation soapAction="terminate"/>
+            <input name="terminate-request">
+                <soap:body use="literal"/>
+            </input>
+            <output name="terminate-response">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    
+    <service name="ServicePartnerSvc">
+        <port binding="svprtnr-svc:ServicePartnerSvcBinding" name="ServicePartnerSvcPort">
+            <soap:address location="https://gwoutstage.ageroappsnonprod.corppvt.cloud/SiriusXM/Stage/ServicePartnerSvc/ServicePartnerSvcPort"/>
+        </port>
+    </service>
+    
+</definitions>

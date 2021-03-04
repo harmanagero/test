@@ -1,0 +1,52 @@
+service: sls-connected-vehicle-api-infra
+
+provider:
+  name: aws
+  deploymentBucket: agero-${self:custom.accountId}-${self:custom.region}-sls-deploy
+  runtime: python3.8
+  stackTags:
+    Module: ${self:service}
+    Name: ${self:custom.tags.name}
+    Application: ${self:custom.tags.application}
+    Environment: ${self:custom.tags.environment}
+    TechnicalTeam: ${self:custom.tags.technicalTeam}
+    AgeroService: ${self:custom.tags.ageroService}
+    BusinessTeam: ${self:custom.tags.businessTeam}
+    ComplianceType: ${self:custom.tags.complianceType}
+    ClassificationLabel: ${self:custom.tags.classificationLabel}
+    IsNGP: ${self:custom.tags.isngp}
+    Tier: ${self:custom.tags.tier}
+    
+custom:
+  setupvars: ${file(./serverless/config/${self:custom.region}/${self:custom.stage}.yml):setupvars}
+  accountId: ${self:custom.setupvars.accountId}
+  stage: ${opt:stage}
+  region: ${opt:region}
+  certArn: ${self:custom.setupvars.certArn}
+  customDomain: connectedvehicle.coreteam-${self:custom.stage}.ageroapi.net
+  hostedZoneId: ${self:custom.setupvars.hostedZoneId}
+  setIdentifier: ${self:custom.region}
+
+  tags:
+    name: ${self:provider.stackTags.Application}-${self:provider.stackTags.Environment}
+    application: connectedvehicle
+    environment: ${self:custom.setupvars.environmentTag}
+    technicalTeam: Core Engineering Team
+    ageroService: Microservice
+    businessTeam: Core Engineering Team
+    complianceType: NA
+    classificationLabel: Level2/Confidential
+    tier: APP
+    isngp: yes
+
+resources:
+  - Description: Cloudformation template for ${self:service}-${self:custom.stage}
+  - ${file(./serverless/resources/customDomain.yml)}
+  - ${file(./serverless/resources/route53.yml)}
+  - Outputs:
+      DomainName:
+        Value:
+          Ref: CustomDomain
+        Export:
+          Name: connectedvehicle-${self:custom.stage}-domain-name
+          

@@ -1,0 +1,52 @@
+name: 0.1.$(Rev:r) #build number. Can be referenced using the $(build.buildnumber) system variable. $(Rev:r) is auto-incrementing.
+
+trigger:
+  branches:
+    include:
+      - main
+
+stages:
+  - stage: Deploy_US_East_1_QA
+    pool: core_platform_nonprod
+    jobs:
+      - job: CoreTeamPostmanTests
+        displayName: Execute Postman API tests in QA
+        steps:
+            - script: |
+                make automation-test stage=qa
+              displayName: Execute Postman API Tests in QA
+
+            - script: |
+                make apigee-automation-test stage=qa
+              displayName: Execute Postman API Tests for QA      
+
+            - task: PublishTestResults@2
+              condition: succeededOrFailed()
+              inputs:
+                testResultsFormat: 'JUnit'
+                testResultsFiles: '**/apiTestResults.xml'
+                testRunTitle: 'Publish test results for Postman API QA'
+
+  - stage: Deploy_US_East_1_Stage
+    pool: core_platform_nonprod
+    jobs:
+      - job: CoreTeamPostmanTests
+        displayName: Execute Postman API tests in Stage
+        pool: core_platform_nonprod
+        steps:
+            - script: |
+                make automation-test stage=stage
+              displayName: Execute Postman API Tests for Stage
+
+            - script: |
+                make apigee-automation-test stage=stage
+              displayName: Execute Apigee API Tests for Stage                         
+
+            - task: PublishTestResults@2
+              condition: succeededOrFailed()
+              inputs:
+                testResultsFormat: 'JUnit'
+                testResultsFiles: '**/apiTestResults.xml'
+                testRunTitle: 'Publish test results for Postman API Stage'
+
+  

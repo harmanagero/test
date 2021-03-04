@@ -1,0 +1,268 @@
+name: 0.1.$(Rev:r) #build number. Can be referenced using the $(build.buildnumber) system variable. $(Rev:r) is auto-incrementing.
+
+variables:
+  - group: common_variable_group
+  - name: pr_branch_name
+    value: $(System.PullRequest.SourceBranch)
+  - name: build_branch_name
+    value: $(Build.SourceBranchName)
+  - name: actual_branch_name
+    value: ${{ coalesce(variables.pr_branch_name, variables.build_branch_name) }}
+  - name: tag
+    value: $(Build.BuildNumber)
+  - name: artifactName
+    value: app
+  - name: release_tag
+    value: 'CONNECTED_VEHICLE'
+  - name: artifactName
+    value: drop
+  - name: isMain
+    value: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+
+
+# Build on a PR, or after a merge to main
+trigger:
+  branches:
+    include:
+      - main
+pr:
+  branches:
+    include:
+      - main
+stages:
+  - stage: Build
+    jobs:
+      - job: Build
+        pool: core_platform_nonprod
+        steps:
+          - checkout: self
+            persistCredentials: true
+            clean: true
+            displayName: Fresh checkout
+
+          - task: PipAuthenticate@1
+            displayName: Setup Pip Authentication
+            inputs:
+              artifactFeeds: agero-python
+              onlyAddExtraIndex: true
+
+          - task: Docker@2
+            displayName: Login to DockerHub
+            inputs:
+              containerRegistry: agero_docker_hub
+              command: login
+
+          - task: npmAuthenticate@0
+            inputs:
+              workingFile: .npmrc
+
+          - script: |
+              export SONAR_TOKEN=$(sonarcloud_token)
+              make sonarcloud-ci version=$(Build.BuildNumber) branch=$(actual_branch_name)
+            displayName: SonarCloud Analysis
+          
+          - script: |
+              make build
+            displayName: Build Container
+              
+          - script: |
+               make serverless-cv-deps
+            displayName: 'Install all Dependencies'
+
+          - script: |
+              make test
+            displayName: Run Unit Tests
+
+          - script: |
+              make bandit
+              exit 0
+            displayName: 'Running Bandit'
+            workingDirectory: .
+            continueOnError: true
+
+          - task: PublishTestResults@2
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFiles: '**/pytest-*.xml'
+              testRunTitle: 'Publish test results for Python $(python.version)'
+              searchFolder: $(Build.SourcesDirectory)
+
+          - task: DotNetCoreInstaller@0
+            displayName: 'install dotnet core'
+            inputs:
+              packageType: sdk
+              version: 2.2.203
+              installationPath: $(Agent.ToolsDirectory)/dotnet
+
+          - task: PublishCodeCoverageResults@1
+            inputs:
+              codeCoverageTool: Cobertura
+              summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.xml'
+              reportDirectory: '$(Build.SourcesDirectory)/**/htmlcov'
+              failIfCoverageEmpty: true              
+          
+          - task: BuildQualityChecks@6
+            inputs:
+              checkCoverage: true
+              coverageFailOption: 'fixed'
+              coverageType: 'lines'
+              coverageThreshold: '90'
+  
+          - script: |
+              make package-cv stage=stage region=us-east-1
+            displayName: 'Validate Serverless Package'
+
+          - publish: $(Build.SourcesDirectory)
+            displayName: Export required files for serverless deploy task
+            artifact: $(artifactName)
+
+          - script: |
+              echo "git config user.name $(Build.RequestedFor)"
+              git config user.name $(Build.RequestedFor)
+
+              echo "git config user.email $(Build.RequestedForEmail)"
+              git config user.email "$(Build.RequestedForEmail)"
+
+              echo "git tag -a $(tag) -m \"Build version $(Build.BuildNumber)\""
+              git tag -a $(tag) -m 'releasing version $(Build.BuildNumber)'
+
+              echo "git push origin $(tag)"
+              git push origin $(tag)
+            displayName: Tag Source
+
+  - stage: Deploy_US_East_1_QA
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    dependsOn: Build
+    pool: core_platform_nonprod
+    jobs:
+      - deployment: Release_ConnectedVehicle_CV_To_QA
+        workspace:
+          clean: all
+        environment: core-team-qa
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - template: templates/deployment.yml
+                  parameters:
+                    deploymentStage: qa
+                    infrastructureStage: nonprod
+                    artifactName: $(artifactName)
+                    deploymentRegion: us-east-1
+
+      - job: CoreTeamPostmanTests
+        displayName: Execute automation tests-QA
+        steps:
+            - script: |
+                sleep 5m
+                make automation-test stage=qa
+              displayName: Automation Tests QA
+
+            - script: |
+                make apigee-automation-test stage=qa
+              displayName: Apigee Automation Tests QA
+
+            - script: |
+                make smoke-test stage=qa
+              displayName: Smoke Tests-QA
+
+            - script: |
+                aws cloudwatch set-alarm-state --alarm-name "sls-connected-vehicle-api-qa-ApiDashrequestCustomErrorsAlarm-HEVMVLDMZ7WO" --state-value ALARM --state-reason "Integration Tests Failure" --region us-east-1
+              displayName: 'Set Alarm on Integration Tests Failure'
+              condition: failed() # this job will only run if previous script execution fails
+
+            - task: PublishTestResults@2
+              condition: succeededOrFailed()
+              inputs:
+                testResultsFormat: 'JUnit'
+                testResultsFiles: '**/apiTestResults.xml'
+                testRunTitle: 'Publish test results for Automation QA'
+
+  - stage: Deploy_US_East_1_Stage
+    pool: core_platform_nonprod
+    dependsOn: Deploy_US_East_1_QA
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - deployment: Release_ConnectedVehicle_CV_To_Stage
+        workspace:
+          clean: all
+        environment: core-team-nonprod
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - template: templates/deployment.yml
+                  parameters:
+                    deploymentStage: stage
+                    infrastructureStage: nonprod
+                    artifactName: $(artifactName)
+                    deploymentRegion: us-east-1
+
+      - job: CoreTeamPostmanTests
+        displayName: Execute Automation tests-Stage
+        pool: core_platform_nonprod
+        steps:
+            - script: |
+                sleep 5m
+                make automation-test stage=stage
+              displayName: Automation Tests-Stage
+
+            - script: |
+                make apigee-automation-test stage=stage
+              displayName: Apigee Automation Tests-Stage
+
+            - script: |
+                make smoke-test stage=stage
+              displayName: Smoke Tests-Stage
+
+            - script: |
+                aws cloudwatch set-alarm-state --alarm-name "sls-connected-vehicle-api-qa-ApiDashrequestCustomErrorsAlarm-HEVMVLDMZ7WO" --state-value ALARM --state-reason "Integration Tests Failure" --region us-east-1
+              displayName: 'Set Alarm on Integration Tests Failure'
+              condition: failed() # this job will only run if previous script execution fails
+
+            - task: PublishTestResults@2
+              condition: succeededOrFailed()
+              inputs:
+                testResultsFormat: 'JUnit'
+                testResultsFiles: '**/apiTestResults.xml'
+                testRunTitle: 'Publish test results Automation-Stage'
+
+  - stage: Deploy_US_East_1_Prod
+    condition: and(succeeded(), eq(variables.isMain, true))
+    dependsOn: Deploy_US_East_1_Stage
+    pool: core_platform_prod
+    jobs:
+      - deployment: Release_connectedvehicle_CV_TO_PROD
+        environment: core-team-prod
+        workspace:
+          clean: all
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - template: templates/deployment.yml
+                  parameters:
+                    deploymentStage: prod
+                    infrastructureStage: prod
+                    artifactName: $(artifactName)
+                    deploymentRegion: us-east-1
+
+
+  - stage: Deploy_US_West_2_Prod
+    dependsOn: Deploy_US_East_1_Prod
+    pool: core_platform_prod
+    jobs:
+      - deployment: Release_connectedvehicle_CV_TO_PROD
+        environment: core-team-prod
+        workspace:
+          clean: all
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - template: templates/deployment.yml
+                  parameters:
+                    deploymentStage: prod
+                    infrastructureStage: prod
+                    artifactName: $(artifactName)
+                    deploymentRegion: us-west-2

@@ -1,0 +1,52 @@
+logging:
+    environment: prod
+    application_name: Connected Vehicle
+    global_log_level: info
+dynamo:
+    table_name: GLOBAL_CV_DATA_PROD
+    supplement_table_name: GLOBAL_CV_SUPPLEMENTDATA_PROD
+    endpoint: ~
+echo:
+    username: TEST
+    password: TEST
+    url: https://postman-echo.com/get
+siriusxm:
+    base_url: https://sxmgw.prod.ageroapps.corppvt.cloud/ServicePartnerSvc/ServicePartnerSvcPort
+    root_cert: /var/task/src/config/certs/corpvtcert.cer
+    wsdl: /var/task/src/config/wsdl/siriusxm.wsdl
+fca:
+    base_url: https://fcagw.prod.ageroapps.corppvt.cloud/FCA/mtls-api.nafta.fcagsdp.com
+    dynamo_table_name: GLOBAL_CV_DATA_PROD
+    dynamo_supplement_table_name: GLOBAL_CV_SUPPLEMENTDATA_PROD
+    api_key: ~
+    bcall_data_url: /v1.0/bcall
+    terminate_bcall_url: /v1.0/bcall/status
+    max_retries: 3
+    delay_for_each_retry: 4
+    max_ani_length: 11
+    api_gateway_base_path: fca
+    root_cert: src/config/certs/corpvtcert.cer
+verizon:
+    base_url: https://vwgw.prod.ageroapps.corppvt.cloud/VW/api.vtitel.com/SOAP/RequestVehicleLocation
+    dynamo_table_name: GLOBAL_CV_DATA_PROD
+    root_cert: src/config/certs/corpvtcert.cer
+    dynamodb_check_enable: False
+    dynamodb_check_timelimit: 0
+aeris:
+    base_url: https://vwgw.prod.ageroapps.corppvt.cloud/CarNet/b-h-s.spr.us00.p.con-veh.net/cds/callcenter/v1/rCallInfo/msisdn
+    dynamo_table_name: GLOBAL_CV_DATA_PROD
+    root_cert: src/config/certs/corpvtcert.cer
+    dynamodb_check_enable: False
+    dynamodb_check_timelimit: 0
+vodafone:
+    dynamo_table_name: GLOBAL_CV_DATA_PROD
+    dynamo_supplement_table_name: GLOBAL_CV_SUPPLEMENTDATA_PROD
+tmna:
+    base_url: https://base_url_placeholder
+    terminate_url: https://terminate_url_placeholder
+    root_cert: src/config/certs/corpvtcert.cer
+wirelesscar:
+    base_url: https://vwgw.prod.ageroapps.corppvt.cloud/Subaru/ccc.prod.wc.subarucs.com/ccc/external/ifcci/ngtp/cci/callcenters/
+    wirelesscar_api_key: ~
+    callcenter_id: 1000
+    program_id: 2142

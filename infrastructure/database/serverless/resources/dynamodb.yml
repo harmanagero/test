@@ -1,0 +1,46 @@
+Resources:
+  Table:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: "request_key"
+          AttributeType: "S"
+
+        - AttributeName: "event_datetime"
+          AttributeType: "N"
+
+        - AttributeName: "programcode"
+          AttributeType: "S"
+
+        - AttributeName: "referenceid"
+          AttributeType: "S"
+
+      KeySchema:
+
+        - AttributeName: "request_key"
+          KeyType: "HASH"
+
+        - AttributeName: "event_datetime"
+          KeyType: "RANGE"
+
+      BillingMode: PAY_PER_REQUEST
+      TableName: "GLOBAL_CV_DATA_${self:custom.stage}"
+      GlobalSecondaryIndexes:
+        - IndexName: "gsi-data-index"
+          KeySchema:
+            - AttributeName: "programcode"
+              KeyType: "HASH"
+
+            - AttributeName: "event_datetime"
+              KeyType: "RANGE"
+          Projection:
+            ProjectionType: "ALL"
+        - IndexName: "gsi-rid-index"
+          KeySchema:
+            - AttributeName: "referenceid"
+              KeyType: "HASH"
+
+            - AttributeName: "event_datetime"
+              KeyType: "RANGE"
+          Projection:
+            ProjectionType: "ALL"

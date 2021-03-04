@@ -1,0 +1,27 @@
+Resources:
+  CustomDomain:
+    Type: AWS::ApiGateway::DomainName
+    Properties:
+      DomainName: ${self:custom.customDomain}
+      EndpointConfiguration:
+        Types:
+          - REGIONAL
+      RegionalCertificateArn: ${self:custom.certArn}
+      SecurityPolicy: TLS_1_2
+      Tags:
+        - Key: Name
+          Value: ${self:custom.tags.name}
+        - Key: Application
+          Value: ${self:custom.tags.application}
+        - Key: Environment
+          Value: ${self:custom.tags.environment}
+        - Key: TechnicalTeam
+          Value: ${self:custom.tags.technicalTeam}
+        - Key: AgeroService
+          Value: ${self:custom.tags.ageroService}
+        - Key: BusinessTeam
+          Value: ${self:custom.tags.businessTeam}
+        - Key: ComplianceType
+          Value: ${self:custom.tags.complianceType}
+        - Key: ClassificationLabel
+          Value: ${self:custom.tags.classificationLabel}

@@ -1,0 +1,18 @@
+Resources:
+ Route53Entry:
+    Type: AWS::Route53::RecordSet
+    DependsOn: CustomDomain
+    Properties:
+      AliasTarget:
+        DNSName:
+          Fn::GetAtt:
+            - CustomDomain
+            - RegionalDomainName
+        HostedZoneId:
+          Fn::GetAtt:
+            - CustomDomain
+            - RegionalHostedZoneId
+      HostedZoneId: ${self:custom.hostedZoneId}
+      Name: ${self:custom.customDomain}
+      #TODO: LOOK AT CLOUDFORMATION DOC FOR HIGH AVAILA
+      Type: A

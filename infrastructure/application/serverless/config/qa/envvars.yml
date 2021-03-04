@@ -1,0 +1,3 @@
+envvars:
+  logging__environment: QualityAssurance
+  # No need to set logging__global_log_level here, as it falls back to config/config.Development.yml setting of debug

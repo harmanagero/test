@@ -1,0 +1,46 @@
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+.pyc
+node_modules/
+*.pyc
+.vs/
+
+# Serverless directories
+.serverless
+
+# Pycharm directories
+/.idea
+/venv
+/fca/HCS ASE Architecture - Breakdown Call _ Road Assist _ Concierge (1) (002).docx
+/fca/bcall sample payload.docx
+.vs
+fca/htmlcov
+fca/junit
+fca/coverage.xml
+fca/.coverage
+htmlcov
+.coverage
+coverage.xml
+tat
+junit
+coverage-report
+test-results
+bandit.json
+postmancollections/Results/apiTestResults.xml
+.env
+automationtests/Results/apiTestResults.xml

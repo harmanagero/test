@@ -1,0 +1,33 @@
+setupvars:
+  environmentTag: STAGE
+  owner: Core Engineering Team
+  technicalTeam: Core Engineering Team
+  businessTeam: Client Service Analysts
+  ageroService: NGP
+  complianceType: NA
+  tier: APP
+  isngp: yes
+  application: connectedvehicle
+
+  classificationLabel: Level2/Confidential
+  accountId: 282323038758
+  vpc:
+    securityGroupIds:
+      - sg-0f35e3bce51c8c4d6
+    subnetIds:
+      - subnet-0e108d130bf063786
+      - subnet-061ec64b6ca16e19c
+  kmsKey: arn:aws:kms:us-east-1:282323038758:key/f2e9e2da-0375-4000-8f74-eeb3b6e94a4c # STAGE
+  usageRateLimit: 1000
+  usageBurstLimit: 500
+  destinationArn: arn:aws:logs:us-east-1:729328028396:destination:aws-fh-destination-cloudwatchevents
+
+  customDomain:
+    Fn::ImportValue: connectedvehicle-nonprod-domain-name
+  notifications:
+    - protocol: email
+      endpoint: hkaur@agero.com
+    - protocol: email
+      endpoint: cogl1-app@agero.com
+
+  dashboard: false

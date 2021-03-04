@@ -1,0 +1,86 @@
+version: '3.4'
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      target: app
+      args:
+        - PIP_EXTRA_INDEX_URL
+    volumes:
+      - ..:/workspace:cached
+    depends_on:
+      - setup
+      - dynamo
+    command: pipenv run api
+    expose:
+      - "5000"
+    working_dir: /workspace
+    environment:
+      - PIP_EXTRA_INDEX_URL
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_SESSION_TOKEN
+      - AWS_DEFAULT_REGION
+      - dynamo__table_name=local-cv
+      - dynamo__endpoint=http://dynamo:8000
+      - logging__environment=local
+      - fca__api_key=not_used
+      - fca__raw_api_key=api_key
+      - AWS_ACCESS_KEY_ID=foo
+      - AWS_SECRET_ACCESS_KEY=foo
+      - wirelesscar__api_key=not_used
+      - wirelesscar__raw_api_key=wirelesscar_api_key
+
+  dynamo:
+    image: amazon/dynamodb-local
+
+  setup:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      target: base
+      args:
+        - PIP_EXTRA_INDEX_URL
+    working_dir: /workspace
+    volumes:
+      - ..:/workspace:cached
+    depends_on:
+      - dynamo
+    command: >
+      /bin/bash -c "
+        while ! echo > /dev/tcp/dynamo/8000;
+        do
+          echo sleeping;
+          sleep 1;
+        done;
+        pipenv run setup_local_dynamo;
+      "
+    environment:
+      - PIP_EXTRA_INDEX_URL
+      - dynamo__table_name=local-cv
+      - dynamo__endpoint=http://dynamo:8000
+      - fca__api_key=not_used
+      - fca__raw_api_key=api_key
+      - AWS_ACCESS_KEY_ID=foo
+      - AWS_SECRET_ACCESS_KEY=foo
+      - wirelesscar__api_key=not_used
+      - wirelesscar__raw_api_key=wirelesscar_api_key
+
+  deploy:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      target: base
+      args:
+        - PIP_EXTRA_INDEX_URL
+    working_dir: /workspace
+    volumes:
+      - ..:/workspace:cached
+    command: echo "Invoke via Makefile"
+    environment:
+      - PIP_EXTRA_INDEX_URL
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_SESSION_TOKEN
+      - AWS_DEFAULT_REGION

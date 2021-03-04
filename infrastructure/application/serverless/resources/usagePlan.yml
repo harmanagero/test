@@ -1,0 +1,14 @@
+Resources:
+    APIUsagePlan:
+        Type: AWS::ApiGateway::UsagePlan
+        DependsOn: ApiGatewayDeployment${sls:instanceId}
+        Properties:
+          ApiStages:
+            - ApiId:
+                Ref: ApiGatewayRestApi
+              Stage: ${self:custom.stage}
+          Description: Usage plan for ${self:service}-${self:custom.stage}
+          Throttle:
+            BurstLimit: ${self:custom.usageBurstLimit}
+            RateLimit: ${self:custom.usageRateLimit}
+          UsagePlanName: plan-${self:service}-${self:custom.stage}

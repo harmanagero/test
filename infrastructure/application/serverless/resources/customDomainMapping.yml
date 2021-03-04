@@ -1,0 +1,10 @@
+Resources:
+  CustomDomainMapping:
+    Type: AWS::ApiGateway::BasePathMapping
+    DependsOn: ApiGatewayDeployment${sls:instanceId}
+    Properties:
+      RestApiId:
+        Ref: ApiGatewayRestApi
+      BasePath: ${self:custom.domainMappingKey}
+      DomainName: ${self:custom.customDomain} # ensure that right name is picked.
+      Stage: ${self:custom.stage}

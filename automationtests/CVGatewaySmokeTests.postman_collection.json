@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "87243bc2-00c8-470d-83e3-a0ab64093097",
+		"name": "CVGatewaySmokeTests",
+		"description": "Regression testing for CVGatewayAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SmokeNissan/Infiniti",
+			"item": [
+				{
+					"name": "SmokeNissan_HealthCheck",
+					"item": [
+						{
+							"name": "CVGatewaySmokeTestHealthCheck_Nissan_1.0",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CVGatewaySmokeTestHealthCheck_Nissan_1.0 Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"CVGatewaySmokeTestHealthCheck_Nissan_1.0 data.success value\", function () {\r",
+											"    pm.expect(jsonData.data.success).to.eql(true);\r",
+											"    });\r",
+											"    pm.test(\"CVGatewaySmokeTestHealthCheck_Nissan_1.0 data.success value\", function () {\r",
+											"    pm.expect(jsonData.data.responsemessage).to.eql(\"HealthCheck passed\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{X-API-KEY}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-KEY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/health/programcode/nissan/ctsversion/1.0",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"health",
+										"programcode",
+										"nissan",
+										"ctsversion",
+										"1.0"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "SmokeInfiniti_HealthCheck",
+					"item": [
+						{
+							"name": "CVGatewaySmokeTestHealthCheck_Infiniti_1.0",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"CVGatewaySmokeTestHealthCheck_Infiniti_1.0  Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"CVGatewaySmokeTestHealthCheck_Infiniti_1.0  data.success value\", function () {\r",
+											"    pm.expect(jsonData.data.success).to.eql(true);\r",
+											"    });\r",
+											"    pm.test(\"CVGatewaySmokeTestHealthCheck_Infiniti_1.0  data.success value\", function () {\r",
+											"    pm.expect(jsonData.data.responsemessage).to.eql(\"HealthCheck passed\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{X-API-KEY}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-KEY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{bs_url}}/{{env}}/health/programcode/infiniti/ctsversion/1.0",
+									"host": [
+										"{{bs_url}}"
+									],
+									"path": [
+										"{{env}}",
+										"health",
+										"programcode",
+										"infiniti",
+										"ctsversion",
+										"1.0"
+									]
+								},
+								"description": "CVGatewaySmokeTestsHealth check_Infiniti"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "SmokeVWCarnet_1.0",
+			"item": [
+				{
+					"name": "CVGatewaySmokeTestHealthCheck_VWCarNet_1.0",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"CVGatewaySmokeTestHealthCheck_VWCarNet_1.0 Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"CVGatewaySmokeTestHealthCheck_VWCarNet_1.0 data.success value\", function () {\r",
+									"    pm.expect(jsonData.data.success).to.eql(true);\r",
+									"    });\r",
+									"    pm.test(\"CVGatewaySmokeTestHealthCheck_VWCarNet_1.0 data.success value\", function () {\r",
+									"    pm.expect(jsonData.data.responsemessage).to.eql(\"HealthCheck passed\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{X-API-KEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-API-KEY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{bs_url}}/{{env}}/health/programcode/vwcarnet/ctsversion/1.0",
+							"host": [
+								"{{bs_url}}"
+							],
+							"path": [
+								"{{env}}",
+								"health",
+								"programcode",
+								"vwcarnet",
+								"ctsversion",
+								"1.0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SmokeCV_Gateway_HealthCheck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"SmokeHealthCheck Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"SmokeHealthCheck data.success value\", function () {\r",
+							"    pm.expect(jsonData.data.success).to.eql(true);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{X-API-KEY}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{bs_url}}/{{env}}/health",
+					"host": [
+						"{{bs_url}}"
+					],
+					"path": [
+						"{{env}}",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
